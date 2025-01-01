@@ -6,14 +6,17 @@ from models import db,User
 
 Config = Config()
 app = Flask(__name__)
+
 app.config.from_object(Config)
+
+
 CORS(app, resources={r"/apiv1/*": {"origins": "http://localhost:5173"}})
 
 
 
 api = Api(app, version='1.0', title='Your API', description='API Description')
 api_ns = api.namespace("Reference", path='/apiv1', description="Reference Data")
-api_ns = api.namespace("Reference", path='/apiv1', description="Reference Data")
+# api_ns = api.namespace("Reference", path='/apiv1', description="Reference Data")
 
 
 
@@ -21,7 +24,6 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
-
 
 
 @api.route('/swagger')
@@ -56,7 +58,6 @@ class GUDUser(Resource):
 
     @api.expect(create_user_parser)
     def post(self): 
-        
         data = request.json
         name = data.get('name')
         email = data.get('email')
@@ -68,13 +69,6 @@ class GUDUser(Resource):
         return {"message": "User created successfully", "id": new_user.id}, 201
 
 
-
-
-
-
-
-
-
     
 if __name__=='__main__':
-    app.run(host='127.0.0.1',port=5000)
+    app.run(host='127.0.0.1',port=5002)

@@ -8,8 +8,7 @@ class User(db.Model):
     name = db.Column(db.String(50), nullable=False , unique=True)
     email = db.Column(db.String(50), nullable=False,unique=True )
     password = db.Column(db.String(50),nullable=False)
-    profile_url = db.Column(db.String(100),nullable=False)
-    
-    from flask_sqlalchemy import SQLAlchemy
+    profile_url = db.Column(db.String(100))
+
 
 
