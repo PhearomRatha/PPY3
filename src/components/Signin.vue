@@ -11,12 +11,12 @@
              <a href="#" class="w-[40px] h-[40px] flex items-center justify-center border-solid border-gray-300 rounded-lg border-x-[1px] border-y-[1px] "><i class="fa-brands fa-github"></i></a>
              <a href="#" class="w-[40px] h-[40px] flex items-center justify-center border-solid border-gray-300 rounded-lg border-x-[1px] border-y-[1px] "><i class="fa-brands fa-linkedin-in"></i></a>
            </div>
-           <form class=" w-full p-4 flex flex-col items-center gap-3  " action="">
+           <form class=" w-full p-4 flex flex-col items-center gap-3  " @submit.prevent="handleLogin" action="">
              <h1 class=" font-custom text-[12px]">or use your email password</h1>
-             <input class=" w-full py-[10px] px-[15px] rounded-[8px]  outline-none bg-[#eee]" placeholder="Email" type="Email">
-             <input class=" w-full py-[10px] px-[15px] rounded-[8px]  outline-none bg-[#eee]" placeholder="Password" type="password">
+             <input v-model="email" class=" w-full py-[10px] px-[15px] rounded-[8px]  outline-none bg-[#eee]" placeholder="Email" type="Email" name="email">
+             <input v-model="password" class=" w-full py-[10px] px-[15px] rounded-[8px]  outline-none bg-[#eee]" placeholder="Password" type="text" name="password">
              <p>Forget Your Password?</p>
-             <button class=" font-custom text-white bg-[#512DA8] py-[10px] px-[15px] rounded-lg">Sign IN</button>
+             <button :disabled="isSubmitting" class=" font-custom text-white bg-[#512DA8] py-[10px] px-[15px] rounded-lg">Sign IN</button>
            </form>
   
          </div>
@@ -25,7 +25,7 @@
            <h1 class=" text-[30px] font-bold m-2 font-custom">Hello, Friend!</h1>
            <p class=" text-[15px] m-2 font-custom">Register with your personal details to use all of site features</p>
            <button 
-           @click="navigationToOtherPage('sing_up')"class="py-2 px-5 border-solid border-x-[1px] border-y-[1px] font-custom rounded-[10px] mt-4">SIGN UP</button>
+           @click="Getemit"class="py-2 px-5 border-solid border-x-[1px] border-y-[1px] font-custom rounded-[10px] mt-4">SIGN UP</button>
          </div>
          </div>
        </div>
@@ -33,16 +33,23 @@
    </template>
    
    <script>
-  
-  
+import axios from 'axios';
    export default {
      data() {
        return {
-         username: "",
+        Data:[],
+        isSubmitting: false,
+        name:"",
+         email: "",
          password: "",
          passwordVisible: false,
-         isclick: false
+         isclick: false,
+         errorpassword:"",
+
        };
+     },
+     mounted(){
+      this.GetData();
      },
      methods: {
       
@@ -56,14 +63,30 @@
        togglePassword() {
          this.passwordVisible = !this.passwordVisible;
        },
+       Getemit(){
+         this.$emit('IsSignin')
+       },
        handleLogin() {
-         if (this.username && this.password) {
+        const userfillter = this.Data.find(e=>e.email == this.email )
+        if(this.email && this.password){
+          if(userfillter && this.password == userfillter.password){
+          alert("Account sign in success")
+          
+          this.$emit('LogSuccess',userfillter.name)
+        }
+        }
+        
+         if (!this.username && !this.password) {
            alert(`Logging in with username: ${this.username}`);
-           // Add your login logic here
+           
          } else {
            alert("Please fill out all fields.");
          }
        },
+    async GetData(){
+    const { data } = await axios("/apiv1/Users")
+    this.Data = data
+  },
      },
    };
    </script>

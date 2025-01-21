@@ -1,7 +1,7 @@
 <template>
  
-  <nav class="  w-full bg-white flex justify-between flex-wrap">
-    <ul class="w-full flex justify-between content-center  text-black font-extrabold shadow-sm h-[100%]">
+  <nav class=" w-screen bg-white flex justify-between items-center  flex-wrap">
+    <ul class="w-full flex justify-between content-center   text-black font-extrabold shadow-sm h-[100%]">
       <div class="flex gap-10">
       <!-- Logo Section -->
       <li class="">
@@ -44,7 +44,6 @@
           <a href="#tailwind" class="w-[10%] h-20 bg-blue-300">Tailwind</a>
           <a href="#vue" class="w-[10%] h-20 bg-blue-400">Vue.js</a>
           <a href="#react" class="w-[10%] h-20 bg-green-700">React.js</a>
-   
         </div>
       </li>
 
@@ -54,39 +53,82 @@
       </li>
       </div>
       <!-- Sign In and Sign Up Section -->
-      <div class=" flex w-[15em] h-[3rem] border-black text-white mt-4">
-        <li class="self-center flex items-center justify-center rounded-3xl ps-2 bg-green-700 absolute w-[8rem] h-[2.5rem]">
-          <p @click="navigationToOtherPage('sing_up')" >Sign up</p>
+      <div v-if="!login_success"  class=' flex items-center w-[15em] h-[3rem] border-black text-white mt-4'>
+        <li @click="handleLogin " class="self-center flex items-center justify-center rounded-3xl ps-2 bg-green-700 absolute w-[8rem] h-[2.5rem] cursor-pointer">
+          <p>Sign up</p>
         </li>
-        <li class="self-center flex items-center justify-center text-black ps-[6rem] rounded-3xl bg-green-400 w-[14rem] h-[2.5rem] border-t border-r border-b border-black">
-          <p @click="navigationToOtherPage('sing_in')">Sign in</p>
+        <li @click="handleSignin" class="self-center flex items-center justify-center text-black ps-[6rem] rounded-3xl bg-green-400 w-[14rem] h-[2.5rem] border-t border-r border-b border-black cursor-pointer">
+          <p >Sign in</p>
         </li>
       </div>
+      <div v-if="login_success"  class=" bg-gray-500 w-[150px] h-[50px] mr-4 m-1 overflow-hidden flex items-center justify-between rounded-full "><span v-if="name" class=" p-4 " >{{ name }}</span> <img class=" w-[50px] h-[50px] rounded-full object-cover" src="../assets/profilesample.jpeg" alt=""></div>
     </ul>
   </nav>
+  <Signin @LogSuccess="LoginSuccess" @IsSignin="handleLogin" v-if="issign_in"  ></Signin>
+   <Signup @IsSignup="handleSignin"  v-if="islogin" ></Signup>
+   <!-- <DisplayUser></DisplayUser> -->
+  
 </template>
 
 <script>
+import Signin from './Signin.vue';
+import Signup from './Signup.vue';
+import DisplayUser from'./DisplayUser.vue'
 export default {
+  components: {
+    Signin,
+    Signup,
+    DisplayUser,
 
+    
+  },
   data() {
     return {
+      name:"",
       isDropdownVisible: false,
       isAboutUsVisible: false,
-      isSignupVisible:false 
+      isSignupVisible:false,
+      issign_in: false,
+      islogin: false,
+      login_success: false,
     };
   },
 
   methods: {
     navigationToOtherPage(routerName){
+      this.issign_in = false
+      this.islogin = false
       this.$router.push(`/${routerName}`)
     },
-
+    Getdata(data){
+      console.log(data)
+    },
     toggleDropdown(event) {
       event.stopPropagation();
       this.isDropdownVisible = !this.isDropdownVisible;
     },
-
+    handleLogin(){
+      if(!this.islogin){
+        this.islogin = !this.islogin
+        this.issign_in = false
+      }else{
+        this.islogin = !this.islogin
+      }
+    },
+    handleSignin(){
+      if(!this.issign_in ){
+        this.issign_in = !this.issign_in
+        this.islogin = false
+      }else{
+        this.issign_in = !this.issign_in
+      }
+    },
+    LoginSuccess(data){
+      this.name = data
+      this.issign_in = false
+      this.islogin = false
+      this.login_success = !this.login_success
+    },
     closeDropdown(event) {
       const dropdownMenu = this.$refs.dropdownMenu;
       const dropdownLink = this.$refs.dropdownLink;

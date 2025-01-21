@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full">
+  <footer class="w-screen">
     <div class="relative flex flex-col h-full">
 
       <img src="../assets/Footer.png" alt="Footer" class="w-full">

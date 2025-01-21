@@ -18,7 +18,7 @@ export default {
           this.currentLetterIndex++;
           // Emit the current displayWord to App.vue
           this.$emit("word-captured", this.displayWord);
-          console.log("Emitted word:", word);
+          // console.log("Emitted word:",this.words);
 
         } else {
           this.displayWord = "";
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div class="homepage relative z-[-999] ">
+  <div class="homepage relative z-[-999] w-screen h-screen ">
     <a href="#" class="relative">
       <img src="../assets/HomePage.png" alt="Homepage" class="w-full h-[37rem]" />
     </a>
