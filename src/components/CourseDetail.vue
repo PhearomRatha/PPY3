@@ -2,7 +2,7 @@
   <section class="w-screen flex fixed">
     <aside class="w-[25%] ml-2 h-screen sticky top-0 overflow-y-auto scroll-smooth">
       <div class="rounded-lg py-[10px] shadow-lg mt-10">
-        <h2 class="font-bold p-5  text-lg  indent-5 text-red-500">ជំពូក</h2>
+        <h2 class="font-bold p-5  text-lg  indent-5 text-black">ជំពូក</h2>
         <div class="bg-green-800 rounded-lg py-[10px] mr-5 flex items-center gap-5 mt-5">
           <span>
             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 512 512">
