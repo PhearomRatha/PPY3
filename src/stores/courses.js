@@ -51,7 +51,7 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: សេចក្តីណែនាំអំពីភាសា C',
         lesson_1: {
           title: 'មេរៀនទី 01: តើ​ភាសា C គឺជាអ្វី?',
-          time: '10mn',
+          time: '5:00',
           discription: 'ភាសាកម្មវិធី C គឺជាភាសាកម្មវិធីដែលមានសារៈសំខាន់ និងមានអនុភាព ញឹកញាប់ប្រើប្រាស់នៅក្នុងវិស័យគាំទ្របច្ចេកវិទ្យាព័ត៌មាន។ វាមានរចនាសម្ព័ន្ធសាមញ្ញ រួមមាន Header Files, Main Function, Statements និង Return Statement ដើម្បីបញ្ជាក់លទ្ធផលទៅប្រព័ន្ធ។ ទោះបីវាមានសេដ្ឋកិច្ចសាមញ្ញ ក៏វាមានអំណាចធ្វើឲ្យបង្កើតកម្មវិធីប្រភេទផ្សេងៗ។ មួយក្នុងចំណោមអត្ថប្រយោជន៍ដ៏សំខាន់គឺការគ្រប់គ្រង memory ដោយផ្ទាល់ ដែលជួយបង្កើនប្រសិទ្ធភាព និងល្បឿនរបស់កម្មវិធី។ភាសា C ត្រូវបានយកទៅប្រើយ៉ាងទូលំទូលាយសម្រាប់ការសរសេរកម្មវិធីប្រព័ន្ធ កម្មវិធីសម្រាប់ការគ្រប់គ្រងឧបករណ៍កុំព្យូទ័រ និងកម្មវិធីដែលមានប្រសិទ្ធភាពខ្ពស់។ C ត្រូវបានគេចាត់ទុកថាជាគ្រឹះដ៏សំខាន់សម្រាប់ការរៀនភាសាកម្មវិធីផ្សេងៗដូចជា C++, Java និង Python ដោយសារតែគន្លឹះនៃគំនិតកម្មវិធីដែលកើតមានពី C ។ ហេតុនេះការរៀនភាសា C គឺមានប្រយោជន៍ខ្ពស់សម្រាប់សិស្សនិស្សិត និងអ្នកចាប់ផ្តើមដែលចង់បង្កើនជំនាញបច្ចេកទេសរបស់ខ្លួន។ ការយល់ដឹងពីភាសា C ផ្តល់មូលដ្ឋានដ៏សមរម្យសម្រាប់ការយល់ពីភាសាកម្មវិធីកាន់តែជ្រាលជ្រៅ និងបច្ចេកទេសខ្ពស់ផ្សេងៗ ដែលអាចប្រើប្រាស់ក្នុងការអភិវឌ្ឍកម្មវិធីថ្មីៗ ។',
           vdo_url: 'https://www.youtube.com/embed/nrbBmoINqtk?si=OtjTAwnTiOw-k19x'
 
@@ -60,13 +60,13 @@ export const useCourses = defineStore('courses', {
         },
         lesson_2: {
           title: 'មេរៀនទី 02: អំពីប្រភេទទិន្នន័យក្នុងភាសា C',
-          time: '20min',
+          time: '20:00',
           discription: 'Variables គឺជាអ្នកផ្ទុកតម្លៃ ដែលប្រើសម្រាប់រក្សាទិន្នន័យក្នុងកម្មវិធី។ វាអាចជាប្រេកង់ ឬទិន្នន័យបែបអក្សរ (characters) និងលេខ។ ប្រើប្រាស់ variables ត្រូវតែមានឈ្មោះ និងប្រភេទទិន្នន័យសមស្រប។ប្រភេទទិន្នន័យ (Data Types)int (អ៊ិន): សម្រាប់លេខគត់ (e.g., 10, -5)float (ហ្វ្លូត): សម្រាប់លេខទសភាគ (e.g., 3.14, -2.5)char (ឆារ): សម្រាប់តួអក្សរ (e.g., A, B)double (ដាប់ប៊ុល): សម្រាប់លេខទសភាគដែលមានភាពត្រឹមត្រូវខ្ពស់ជាង float',
           vdo_url: 'https://www.youtube.com/embed/nrbBmoINqtk?si=OtjTAwnTiOw-k19x'
         },
         quiz: {
           quiz_title_1: "Quiz 01",
-          time: "2mn",
+          time_quiz_1: "2:00",
           questionsAnswers: [
             {
               title: "1.  អត្ថប្រយោជន៍សំខាន់មួយនៃការប្រើប្រាស់ភាសាកម្មវិធី C គឺអ្វី?",
@@ -117,7 +117,7 @@ export const useCourses = defineStore('courses', {
             }
           ],
           quiz_title_2: "Quiz 01",
-          time: "2mn",
+          time_quiz_2: "5:00",
           questionsAnswers_quiz_2: [
             {
               title: "1.Variables គឺជាអ្វី?",
@@ -166,7 +166,7 @@ export const useCourses = defineStore('courses', {
 
           ],
           quiz_title_2: "Quiz 02",
-          time: "2mn",
+          time: "2:00",
           questionsAnswers_quiz_2: [
             {
               title: "1. តើភាសា C++ មានការគាំទ្រគោលការណ៍អ្វីដែលសំខាន់ក្នុងការរៀបចំកូដ?",
@@ -225,7 +225,7 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ការណែនាំអំពីភាសាកម្មវិធី C++',
         lesson_1: {
           title: 'មេរៀនទី01: លក្ខណៈពិសេស និងការប្រើប្រាស់ភាសា C++',
-          time: '10',
+          time: '10:00',
           discription: 'C++ គឺជាភាសាកម្មវិធីដែលមានលក្ខណៈប្រើប្រាស់បានច្រើនជាន់ និងត្រូវបានបង្កើតឡើងដោយបង្កើនលក្ខណៈសម្បត្តិថ្មីៗចូលទៅក្នុងភាសា C។ វាប្រើសម្រាប់អភិវឌ្ឍកម្មវិធីដែលមានប្រសិទ្ធភាពខ្ពស់ ដូចជា កម្មវិធីប្រព័ន្ធ (system software), កម្មវិធីប្រើប្រាស់ (application software), កម្មវិធីឧបករណ៍ (tool software) និងហ្គេម។C++ ត្រូវបានបង្កើតឡើងដោយ Bjarne Stroustrup នៅឆ្នាំ 1980 ហើយវាមានលក្ខណៈសំខាន់ៗដូចជា៖ការគាំទ្រគោលការណ៍ Object-Oriented Programming (OOP): វាអាចប្រើប្រព័ន្ធ objects ដើម្បីរៀបចំកូដឲ្យមានលំដាប់លំដោយ។ប្រសិទ្ធភាពខ្ពស់: វាមានល្បឿនលឿនក្នុងការដំណើរការ។ភាពអាចប្តូរបាន (Flexibility): វាអាចប្រើសម្រាប់ការអភិវឌ្ឍន៍ប្រព័ន្ធគ្រប់ប្រភេទ។C++ ក៏ត្រូវបានប្រើប្រាស់យ៉ាងទូលំទូលាយក្នុងវិស័យផ្សេងៗ ដូចជា៖ការបង្កើតប្រព័ន្ធប្រតិបត្តិការការអភិវឌ្ឍកម្មវិធីតង់ស៊ីធ្វើ (real-time systems)ការបង្កើតហ្គេម និងកម្មវិធីបច្ចេកវិទ្យាត្រូវការភាពច្បាស់លាស់ខ្ពស់។',
           vdo_url: 'https://www.youtube.com/embed/S3nx34WFXjI?si=a6sIPzuLsxwVpsP2',
         },
@@ -237,7 +237,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz: {
           quiz_title_1: "quiz 01",
-          time: "2mn",
+          time: "5:00",
           questionsAnswers: [
               {
                 "title": "តើភាសាកម្មវិធី C++ ត្រូវបានបង្កើតឡើងដោយអ្នកណា និងនៅឆ្នាំណា?",
@@ -329,7 +329,7 @@ export const useCourses = defineStore('courses', {
               }
             ],
             quiz_title_2: "Quiz 01",
-            time: "2mn",
+            time: "2:00",
             questionsAnswers_quiz_2: [
               {
                 title: "1.Variables គឺជាអ្វី?",
@@ -389,20 +389,20 @@ export const useCourses = defineStore('courses', {
         "chapter_title": "ជំពូក 01: សេចក្តីណែនាំអំពីភាសា python",
         "lesson_1": {
           "title": "មេរៀនទី 01: ការនែនាំអំពីភាសាpython?",
-          "time": "2mn",
+          "time": "2",
           "discription": "Python គឺជាភាសាសរសេរកម្មវិធីដ៏ពេញនិយមមួយ។ វាត្រូវបានបង្កើតឡើងដោយ Guido van Rossum ហើយបានចេញផ្សាយនៅឆ្នាំ 1991 ។ ។",
           "vdo_url": "https://youtu.be/xkZMUX_oQX4?si=wInaQdUFxr1oMvMu"
         },
         "lesson_2": {
           "title": "មេរៀនទី 02: Python - Syntax?",
-          "time": "2mn",
+          "time": "2",
           "discription": "Syntax ភាសា Python គឺជាសំណុំនៃច្បាប់ដែលកំណត់របៀបសរសេរ និងបកប្រែភាសា។ វាត្រូវបានរចនាឡើងឱ្យមានភាពច្បាស់លាស់ ងាយស្រួលអាន និងងាយស្រួលរៀន។ ខាងក្រោមនេះគឺជាចំណុចសំខាន់ៗមួយចំនួន៖ការវិលចូល (Indentation) ភាពប្រែប្រួលនៃអក្សរធំ-អក្សរតូច ពាក្យគន្លឹះ (Keywords) ប្រភេទទិន្នន័យអថេរ",
           "vdo_url": "https://youtu.be/4WVZBtqqVM4?si=U7k6D-qsKGm_Gv4T"
         },
         "quiz": [
           {
             "quiz_title": "Quiz 01",
-            "time": "2mn",
+            "time": "2",
             "questionsAnswers": [
               {
                 "title": "1. តើpythonជាអ្វី?",
@@ -441,7 +441,7 @@ export const useCourses = defineStore('courses', {
           },
           {
             "quiz_title": "Quiz 02",
-            "time": "2mn",
+            "time": "2",
             "questionsAnswers": [
               {
                 "title": "1. របៀបRun Python ក្នុងកុំព្យូទ័រ?",
@@ -486,19 +486,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: ' មូលដ្ឋានសំខាន់ៗនៃ CSS',
         lesson_1: {
           title: 'CSS ជាអ្វី',
-          time: '10min',
+          time: '10',
           discription: 'CSS គឺជាភាសាមួយសម្រាប់ជំនួយដល់ការកែលំអរផ្ទៃខាងមុខនៃ website របស់យើងអោយកាន់តែស្រស់ស្អាត។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។តួនាទីរបស់ CSS ក្នុងការរចនាម៉ោងបណ្ដាការភ្ជាប់ CSS ជាមួយ HTML (Inline, Internal, និង External CSS)',
           vdo_url: 'https://www.youtube.com/embed/qHjthC0n-sU?si=jKQT6SUXt5zBpVzM',
         },
         lesson_2: {
           title: 'ការរចនាstyleមូលដ្ឋាន',
-          time: '10min',
+          time: '10',
           discription: 'នេះជាមេរៀនបង្រៀនពី CSS ដែលជាភាសាមួយសម្រាប់ជំនួយដល់ការកែលំអរផ្ទៃខាងមុខនៃ វេបសាយ៍ របស់យើងអោយកាន់តែស្រស់ស្អាត។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://youtube.com/playlist?list=PLuEdNLfGOtnXQgIxwuOjWvhE4pvxJghhk&si=QHnDSVwXYf44fMgs',
         },
         quiz: {
           quiz_title: "quiz 01",
-          time: "10min",
+          time: "10",
           questionsAnswers: [
             {
               title: "1: មូលដ្ឋានសំខាន់ៗនៃ CSS",
@@ -527,7 +527,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz_2: {
           quiz_title: "quiz 02",
-          time: "10min",
+          time: "10",
           questionsAnswers: [
             {
               title: "1.តើ Syntax មូលដ្ឋាននៃ CSS មានអ្វីខ្លះ?",
@@ -587,7 +587,7 @@ export const useCourses = defineStore('courses', {
         },
         "quiz": {
           "quiz_title": "Quiz 01",
-          "time": "2mn",
+          "time": "2",
           "questionsAnswers": [
             {
               "title": "1. តើ HTML Elements ជាអ្វី?",
@@ -643,7 +643,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz: {
           quiz_title: "Quiz 01",
-          time: "2mn",
+          time: "2",
           questionsAnswers: [
             {
               title: "1.តើ JavaScript គឺជាអ្វី?",
@@ -692,7 +692,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz_2: {
           quiz_title: "Quiz 02",
-          time: "3mn",
+          time: "3",
           questionsAnswers: [
             {
               title: "1.តើ Operator "===" មានន័យថា:",
@@ -735,7 +735,7 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: សេចក្តីណែនាំអំពី JAVA',
         lesson_1: {
           title: 'មេរៀនទី 01: សេចក្តីផ្តើម JAVA',
-          time: '3mn',
+          time: '3',
           description: 'Java គឺជាភាសាសរសេរកម្មវិធី និងវេទិកាកុំព្យូទ័រដែលប្រើដើម្បីបង្កើតកម្មវិធីសម្រាប់ឧបករណ៍ជាច្រើន។ វាគឺជាជម្រើសដ៏ពេញនិយមសម្រាប់អ្នកអភិវឌ្ឍន៍ ព្រោះវាលឿន ជឿជាក់ និងសុវត្ថិភាព។',
           vdo_url: 'https://youtu.be/t54pgbVy6t0?si=DUr9ZDYxU040u1Gw'
         },
@@ -747,7 +747,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz: {
           quiz_title: 'Quiz 01',
-          time: '2mn',
+          time: '2',
           questionsAnswers: [
             {
               title: '1. តើ JAVA ជាអ្វី?',
@@ -790,7 +790,7 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: សេចក្តីណែនាំអំពី Bootstrap',
         lesson_1: {
           title: 'មេរៀនទី 01: Bootstrap ជាអ្វី?',
-          time: '3mn',
+          time: '3',
           description: 'នេះជាមេរៀនបង្រៀនពី Boostrap ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmpRKah2EZP1RPr8NG_u_d9i&si=gvnaNdZ2sPaIWmx_'
         },
@@ -802,7 +802,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz: {
           quiz_title: 'Quiz 01',
-          time: '2mn',
+          time: '2',
           questionsAnswers: [
             {
               title: '1. តើ Bootstrap ជាអ្វី? ',
@@ -853,19 +853,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: មូលដ្ឋាន Tailwind CSS',
         lesson_1: {
           title: 'មេរៀនទី 01: Tailwind CSS ជាអ្វី?',
-          time: '3mn',
+          time: '3',
           description: 'នេះជាមេរៀនបង្រៀនពី Tailwind Css ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmqNIl6xXOUQ5Qj6g0JBBgP6&si=czLc_c6Xbhy51sPE'
         },
         lesson_2: {
           title: 'មេរៀនទី 02: Tawind Syntax និង Classesil',
-          time: '2mn',
+          time: '2',
           description: 'Utility Classes គឺជាអ្វី? របៀបប្រើ Utility Classes ដើម្បីកំណត់ស្ទីល (Spacing, Colors, Flexbox)  ឧទាហរណ៍នៃការរចនាដោយប្រើ Tailwind Classes',
           vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
         },
         quiz: {
           quiz_title: 'Quiz 01',
-          time: '2mn',
+          time: '2',
           questionsAnswers: [
             {
               title: '1. តើ Tailwind CSS ជាអ្វី ',

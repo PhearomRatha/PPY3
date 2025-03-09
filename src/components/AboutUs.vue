@@ -14,6 +14,7 @@
             វគ្គសិក្សានីមួយៗត្រូវបានរចនាឡើងដើម្បីជួយអ្នកបង្កើតមូលដ្ឋានគ្រឹះដ៏រឹងមាំ និងបង្កើតគម្រោងដែលបង្ហាញពីសមត្ថភាពរបស់អ្នក។
           </p>
         </div>
+        
         <div class=" w-[40%] transition-opacity duration-300   hover:w-[600px]">
           <img src="../assets/aboutUs.png" alt="ZCode Team" />
         </div>
