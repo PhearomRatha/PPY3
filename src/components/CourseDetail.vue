@@ -21,7 +21,8 @@
             </svg>
           </span>
           <h1 class="cursor-pointer text-[13px] ">{{ currentChapter?.lesson_1.title }}</h1>
-        <h1 class="ml-auto mr-5 text-[15px]"> {{ activeItem === 'lesson_1' ? displayTime : getDefaultTime('lesson_1') }}min</h1> 
+          <h1 class="ml-auto mr-5 text-[15px]"> {{ activeItem === 'lesson_1' ? displayTime : getDefaultTime('lesson_1')
+          }}min</h1>
           <!-- <h1 class="ml-auto mr-3 text-[15px]">{{remainingTime}}min</h1> -->
 
         </section>
@@ -35,8 +36,8 @@
           </span>
           <h1 class="text-[15px]">{{ currentChapter?.quiz.quiz_title_1 }}</h1>
           <h1 class="ml-auto mr-5 text-[15px]">
-  {{ activeItem === 'quiz_1' ? displayTime : getDefaultTime('quiz_1') }} min
-</h1>
+            {{ activeItem === 'quiz_1' ? displayTime : getDefaultTime('quiz_1') }} min
+          </h1>
           <!-- <h1 class="ml-auto mr-3 text-[15px]">{{remainingTime}}min</h1> -->
         </section>
         <section @click="showLesson_2" :class="{ 'border-2 border-red-500': isshowLesson_2Visible }"
@@ -48,7 +49,8 @@
             </svg>
           </span>
           <h1 class="cursor-pointer text-[13px] ">{{ currentChapter?.lesson_2.title }}</h1>
-          <h1 class="ml-auto mr-5 text-[15px]">{{ activeItem === 'lesson_2' ? displayTime : getDefaultTime('lesson_2') }}min</h1>
+          <h1 class="ml-auto mr-5 text-[15px]">{{ activeItem === 'lesson_2' ? displayTime : getDefaultTime('lesson_2')
+          }}min</h1>
           <!-- <h1 class="ml-auto mr-3 text-[15px]">{{remainingTime}}min</h1> -->
 
         </section>
@@ -62,8 +64,8 @@
           </span>
           <h1 class="text-[15px]">{{ currentChapter?.quiz.quiz_title_2 }}</h1>
           <h1 class="ml-auto mr-3 text-[15px]">
-  {{ activeItem === 'quiz_2' ? displayTime : getDefaultTime('quiz_2') }} min
-</h1>
+            {{ activeItem === 'quiz_2' ? displayTime : getDefaultTime('quiz_2') }} min
+          </h1>
           <!-- <h1 class="ml-auto mr-3 text-[15px]">{{remainingTime}}min</h1> -->
         </section>
       </div>
@@ -100,11 +102,11 @@
         </div>
 
 
-        <section v-if="isshowQuizVisible" class="w-full h-[500px]">
+        <!-- Quiz Section (Visible Before Submission) -->
+        <section v-if="isshowQuizVisible && !isQuizSubmitted" class="w-full h-[500px]">
           <div class="flex justify-between">
             <h1 class="text-lg font-bold">Quiz</h1>
             <p class="text-lg font-bold">{{ activeItem === 'quiz_1' ? displayTime : getDefaultTime('quiz_1') }} min</p>
-            <!-- <p class="">{{ remainingTime }}min</p> -->
           </div>
           <div class="indent-5" v-for="(quiz, index) in currentChapter?.quiz.questionsAnswers" :key="quiz.correct_ans">
             <div class="mt-3 h-auto shadow-lg bg-white p-2">
@@ -122,22 +124,44 @@
             </div>
           </div>
           <button @click="submitQuiz"
-            class="bg-green-800 text-white px-10 py-3 ml-[85%] rounded-lg my-3 hover:bg-green-500">Submit</button>
-          <div v-if="isQuizSubmitted">
-            <h2 class="text-lg font-bold">Your Score: {{ totalScore }}</h2>
-            <p v-for="(quiz, index) in currentChapter?.quiz.questionsAnswers_quiz_1.correct_ans" :key="index">
-              Question {{ index + 1 }}: <span
-                :class="{ 'text-green-600': quiz.isCorrect, 'text-red-600': !quiz.isCorrect }">
-                {{ quiz.isCorrect ? 'Correct' : 'Incorrect' }}
-              </span>
-            </p>
-          </div>
+            class="bg-green-800 text-white px-10 py-3 ml-[85%] rounded-lg my-3 hover:bg-green-500">
+            Submit
+          </button>
+        </section>
 
+
+      
+         <section v-if="isQuizSubmitted">
+
+          <h2 class="text-lg font-bold">Quiz Results</h2>
+          <div class="mt-6">
+            <h2 class="text-lg font-bold">Your Score: {{ totalScore }}</h2>
+            <div v-for="(quiz, index) in currentChapter?.quiz.questionsAnswers" :key="index">
+              <div class="mt-3 h-auto shadow-lg bg-white p-2">
+                <div class="flex">
+                  <h1 class="text-lg font-bold">{{ quiz.title }}</h1>
+                  <p class="text-lg font-bold mt-3">{{ quiz.score }}pt</p>
+                </div>
+                <div v-for="(ans, ansIndex) in quiz.answers" :key="ansIndex">
+                  <label>
+                    <span :class="{
+                      'text-green-600': ans === quiz.correct_ans,
+                      'text-red-600': ans === quiz.selectedAnswer && ans !== quiz.correct_ans
+                    }">
+                      {{ ans }}
+                      <span v-if="ans === quiz.correct_ans">(Correct Answer)</span>
+                      <span v-if="ans === quiz.selectedAnswer && ans !== quiz.correct_ans">(Your Answer)</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <section v-if="isshowQuiz_2Visible" class="w-full h-[500px]">
           <div class="flex justify-between">
             <h1 class="text-lg font-bold">Quiz</h1>
-          
+
             <!-- <p class="text-lg font-bold">{{ currentChapter?.quiz.time_quiz_2 }}</p> -->
             <p class="text-lg font-bold">{{ activeItem === 'quiz_2' ? displayTime : getDefaultTime('quiz_2') }}min</p>
           </div>
@@ -182,19 +206,19 @@ export default {
       isshowQuiz_2Visible: false,
       isQuizSubmitted: false,
       totalScore: 0,
-      remainingTime: "", 
+      remainingTime: "",
       timer: null,
-      activeItem: null, 
+      activeItem: null,
     };
   },
   mounted() {
-   
+
     if (this.activeItem) {
       this.startCountdown(this.getDefaultTime(this.activeItem));
     }
   },
   beforeUnmount() {
-    clearInterval(this.timer); 
+    clearInterval(this.timer);
   },
   methods: {
     showLesson() {
@@ -236,75 +260,89 @@ export default {
       );
     },
     submitQuiz() {
-      this.totalScore = 0;
-      this.isQuizSubmitted = true;
-      this.currentChapter?.quiz.questionsAnswers_quiz_1.forEach((quiz) => {
-        quiz.isCorrect = quiz.selectedAnswer === quiz.correct_ans;
-        if (quiz.isCorrect) {
-          this.totalScore += quiz.score;
+  this.totalScore = 0;
+  this.isQuizSubmitted = true;
+
+  // Ensure the array exists before looping
+  if (this.currentChapter?.quiz?.questionsAnswers_quiz_1) {
+    this.currentChapter.quiz.questionsAnswers_quiz_1.forEach((quiz) => {
+      quiz.isCorrect = quiz.selectedAnswer === quiz.correct_ans;
+      if (quiz.isCorrect) {
+        this.totalScore += quiz.score;
+      }
+    });
+  } else {
+    console.error("questionsAnswers_quiz_1 is undefined or empty!");
+  }
+},
+
+
+    
+   
+
+      startCountdown(time) {
+        clearInterval(this.timer);
+
+        let [minutes, seconds] = time.split(":").map(Number);
+
+        this.timer = setInterval(() => {
+          if (minutes === 0 && seconds === 0) {
+            clearInterval(this.timer);
+            this.remainingTime = "00:00";
+            return;
+          }
+          if (seconds === 0) {
+            minutes--;
+            seconds = 59;
+          } else {
+            seconds--;
+          }
+          this.remainingTime = `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        }, 1000);
+      },
+      getDefaultTime(item) {
+        switch (item) {
+          case "lesson_1":
+            return this.currentChapter?.lesson_1.time || "00:00";
+          case "quiz_1":
+            return this.currentChapter?.quiz.time_quiz_1 || "00:00";
+          case "lesson_2":
+            return this.currentChapter?.lesson_2.time || "00:00";
+          case "quiz_2":
+            return this.currentChapter?.quiz.time_quiz_2 || "00:00";
+          default:
+            return "00:00";
         }
-      });
+      },
     },
-    startCountdown(time) {
-      clearInterval(this.timer);
 
-      let [minutes, seconds] = time.split(":").map(Number);
 
-      this.timer = setInterval(() => {
-        if (minutes === 0 && seconds === 0) {
-          clearInterval(this.timer);
-          this.remainingTime = "00:00";
-          return;
-        }
-        if (seconds === 0) {
-          minutes--;
-          seconds = 59;
+
+    computed: {
+      currentCourse() {
+        return this.coursesDetails.find((course) => course.id === this.courseId);
+      },
+      currentChapter() {
+        return this.courseDetailsChapter[0] || null;
+      },
+      displayTime() {
+        // Display the remaining time for the active item, or the default time for inactive items
+        if (this.activeItem) {
+          return this.remainingTime;
         } else {
-          seconds--;
+          return this.getDefaultTime(this.activeItem);
         }
-        this.remainingTime = `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-      }, 1000);
+      },
     },
-    getDefaultTime(item) {
-      switch (item) {
-        case "lesson_1":
-          return this.currentChapter?.lesson_1.time || "00:00";
-        case "quiz_1":
-          return this.currentChapter?.quiz.time_quiz_1 || "00:00";
-        case "lesson_2":
-          return this.currentChapter?.lesson_2.time || "00:00";
-        case "quiz_2":
-          return this.currentChapter?.quiz.time_quiz_2 || "00:00";
-        default:
-          return "00:00";
-      }
+    watch: {
+      '$route.params.courseId'(newId) {
+        this.courseId = newId;
+        this.findChapterByCourseId();
+      },
     },
-  },
-  computed: {
-    currentCourse() {
-      return this.coursesDetails.find((course) => course.id === this.courseId);
-    },
-    currentChapter() {
-      return this.courseDetailsChapter[0] || null;
-    },
-    displayTime() {
-      // Display the remaining time for the active item, or the default time for inactive items
-      if (this.activeItem) {
-        return this.remainingTime;
-      } else {
-        return this.getDefaultTime(this.activeItem);
-      }
-    },
-  },
-  watch: {
-    '$route.params.courseId'(newId) {
-      this.courseId = newId;
+    created() {
+      this.coursesDetails = this.useCourses.getCoursesDetails;
       this.findChapterByCourseId();
     },
-  },
-  created() {
-    this.coursesDetails = this.useCourses.getCoursesDetails;
-    this.findChapterByCourseId();
-  },
-};
+  };
 </script>
