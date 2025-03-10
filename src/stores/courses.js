@@ -165,58 +165,7 @@ export const useCourses = defineStore('courses', {
             }
 
           ],
-          quiz_title_2: "Quiz 02",
-          time: "2:00",
-          questionsAnswers_quiz_2: [
-            {
-              title: "1. តើភាសា C++ មានការគាំទ្រគោលការណ៍អ្វីដែលសំខាន់ក្នុងការរៀបចំកូដ?",
-              answers: [
-                "a. Procedural Programming",
-                "b. Object-Oriented Programming",
-                "c. Functional Programming",
-                "d. Declarative Programming"
-              ],
-              correct_ans: "b. Object-Oriented Programming",
-              score: 1
-
-            },
-            {
-              title: "2. តើភាសា C++ មានលក្ខណៈសំខាន់បីប្រភេទនៃភាសា C++ មានអ្វីខ្លះ?",
-              answers: [
-                "a. ការគាំទ្រគោលការណ៍ Object-Oriented Programming (OOP): វាអាចប្រើប្រព័ន្ធ objects ដើម្បីរៀបចំកូដឲ្យមានលំដាប់លំដោយ។",
-                "b. ការគាំទ្រគោលការណ៍ Object-Oriented Programming (OOP): វាអាចប្រើប្រព័ន្ធ objects ដើម្បីរៀបចំកូដឲ្យមានលំដាប់លំដោយ។",
-                "c. ការគាំទ្រគោលការណ៍ Object-Oriented Programming (OOP): វាអាចប្រើប្រព័ន្ធ objects ដើម្បីរៀបចំកូដឲ្យមានលំដាប់លំដោយ។",
-                "d. ការគាំទ្រគោលការណ៍ Object-Oriented Programming (OOP): វាអាចប្រើប្រព័ន្ធ objects ដើម្បីរៀបចំកូដឲ្យមានលំដាប់លំដោយ។",
-
-              ],
-              correct_ans: "b. ការគាំទ្រគោលការណ៍ Object-Oriented Programming (OOP): វាអាចប្រើប្រព័ន្ធ objects ដើម្បីរៀបចំកូដឲ្យមានលំដាប់លំដោយ។",
-              score: 1
-            },
-            {
-              title: "3.ប្រភេទទិន្នន័យណាដែលប្រើសម្រាប់តួអក្សរ?",
-              answers: [
-                "a. char",
-                "b. int",
-                "c. float",
-                "d. double",
-              ],
-              correct_ans: "Correct : a. char",
-              score: 1
-            },
-            {
-              title: "4.តើប្រភេទទិន្នន័យណាដែលមានភាពត្រឹមត្រូវខ្ពស់ជាង float?",
-              answers: [
-                "a. char",
-                "b. int",
-                "c. float",
-                "d. double",
-              ],
-              correct_ans: "Correct : d. double",
-              score: 1
-            }
-
-
-          ] 
+   
 
         }
       }, 
@@ -237,7 +186,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz: {
           quiz_title_1: "quiz 01",
-          time: "5:00",
+          time_quiz_1: "5:00",
           questionsAnswers: [
               {
                 "title": "តើភាសាកម្មវិធី C++ ត្រូវបានបង្កើតឡើងដោយអ្នកណា និងនៅឆ្នាំណា?",
@@ -329,7 +278,7 @@ export const useCourses = defineStore('courses', {
               }
             ],
             quiz_title_2: "Quiz 01",
-            time: "2:00",
+            time_quiz_2: "2:00",
             questionsAnswers_quiz_2: [
               {
                 title: "1.Variables គឺជាអ្វី?",
@@ -385,96 +334,96 @@ export const useCourses = defineStore('courses', {
         
       
         {
-          "courseId": "Python",
-        "chapter_title": "ជំពូក 01: សេចក្តីណែនាំអំពីភាសា python",
-        "lesson_1": {
-          "title": "មេរៀនទី 01: ការនែនាំអំពីភាសាpython?",
-          "time": "2",
-          "discription": "Python គឺជាភាសាសរសេរកម្មវិធីដ៏ពេញនិយមមួយ។ វាត្រូវបានបង្កើតឡើងដោយ Guido van Rossum ហើយបានចេញផ្សាយនៅឆ្នាំ 1991 ។ ។",
-          "vdo_url": "https://youtu.be/xkZMUX_oQX4?si=wInaQdUFxr1oMvMu"
+          courseId: "Python",
+        chapter_title: "ជំពូក 01: សេចក្តីណែនាំអំពីភាសា python",
+        lesson_1: {
+          title: "មេរៀនទី 01: ការនែនាំអំពីភាសាpython?",
+          time: "2:00",
+          discription: "Python គឺជាភាសាសរសេរកម្មវិធីដ៏ពេញនិយមមួយ។ វាត្រូវបានបង្កើតឡើងដោយ Guido van Rossum ហើយបានចេញផ្សាយនៅឆ្នាំ 1991 ។ ។",
+          vdo_url: "https://youtu.be/xkZMUX_oQX4?si=wInaQdUFxr1oMvMu"
         },
-        "lesson_2": {
-          "title": "មេរៀនទី 02: Python - Syntax?",
-          "time": "2",
-          "discription": "Syntax ភាសា Python គឺជាសំណុំនៃច្បាប់ដែលកំណត់របៀបសរសេរ និងបកប្រែភាសា។ វាត្រូវបានរចនាឡើងឱ្យមានភាពច្បាស់លាស់ ងាយស្រួលអាន និងងាយស្រួលរៀន។ ខាងក្រោមនេះគឺជាចំណុចសំខាន់ៗមួយចំនួន៖ការវិលចូល (Indentation) ភាពប្រែប្រួលនៃអក្សរធំ-អក្សរតូច ពាក្យគន្លឹះ (Keywords) ប្រភេទទិន្នន័យអថេរ",
-          "vdo_url": "https://youtu.be/4WVZBtqqVM4?si=U7k6D-qsKGm_Gv4T"
+        lesson_2: {
+        title: "មេរៀនទី 02: Python - Syntax?",
+        time: "2",
+        discription: "Syntax ភាសា Python គឺជាសំណុំនៃច្បាប់ដែលកំណត់របៀបសរសេរ និងបកប្រែភាសា។ វាត្រូវបានរចនាឡើងឱ្យមានភាពច្បាស់លាស់ ងាយស្រួលអាន និងងាយស្រួលរៀន។ ខាងក្រោមនេះគឺជាចំណុចសំខាន់ៗមួយចំនួន៖ការវិលចូល (Indentation) ភាពប្រែប្រួលនៃអក្សរធំ-អក្សរតូច ពាក្យគន្លឹះ (Keywords) ប្រភេទទិន្នន័យអថេរ",
+        vdo_url: "https://youtu.be/4WVZBtqqVM4?si=U7k6D-qsKGm_Gv4T"
         },
-        "quiz": [
+        quiz: [
           {
-            "quiz_title": "Quiz 01",
-            "time": "2",
-            "questionsAnswers": [
+            quiz_title: "Quiz 01",
+            time_quiz_1: "2:00",
+            questionsAnswers: [
               {
-                "title": "1. តើpythonជាអ្វី?",
-                "answers": [
+                title: "1. តើpythonជាអ្វី?",
+                answers: [
                   "A) ភាសាសរសេរកម្មវិធីដែលប្រើសម្រាប់បង្កើតហ្គេមកុំព្យូទ័រជាចម្បង",
                   "B) ភាសាសរសេរកម្មវិធីសាមញ្ញ និងងាយស្រួលរៀន ដែលប្រើប្រាស់បានទូលំទូលាយក្នុងវិស័យផ្សេងៗ",
                   "C) ភាសាសរសេរកម្មវិធីដែលប្រើសម្រាប់បង្កើតកម្មវិធីទូរស័ព្ទដៃតែប៉ុណ្ណោះ",
                   "D) ភាសាសរសេរកម្មវិធីចាស់ ដែលមិនត្រូវបានប្រើប្រាស់ច្រើនទៀតហើយ"
                 ],
-                "correct_ans": "B) ភាសាសរសេរកម្មវិធីសាមញ្ញ និងងាយស្រួលរៀន ដែលប្រើប្រាស់បានទូលំទូលាយក្នុងវិស័យផ្សេងៗ",
-                "score": 1
+                correct_ans: "B) ភាសាសរសេរកម្មវិធីសាមញ្ញ និងងាយស្រួលរៀន ដែលប្រើប្រាស់បានទូលំទូលាយក្នុងវិស័យផ្សេងៗ",
+                score: 1
               },
               {
-                "title": "2. តើpython អាចធ្វើអ្វីបានខ្លះ?",
-                "answers": [
+                title: "2. តើpython អាចធ្វើអ្វីបានខ្លះ?",
+                answers: [
                   "A) អភិវឌ្ឍន៍websites វិភាគទិន្នន័យ និងបង្កើតប្រព័ន្ធបញ្ញាសិប្បនិមិត្",
                   "B) ប្រើប្រាស់បានតែសម្រាប់គណនាគណិតវិទ្យាប៉ុណ្ណោះ",
                   "C) បង្កើតហ្គេមកុំព្យូទ័របានតែមួយប្រភេទ",
                   "D) ប្រើប្រាស់សម្រាប់បង្កើតឯកសារ Word និង Excel តែប៉ុណ្ណោះ"
                 ],
-                "correct_ans": "A) អភិវឌ្ឍន៍websites វិភាគទិន្នន័យ និងបង្កើតប្រព័ន្ធបញ្ញាសិប្បនិមិត្ត",
-                "score": 1
+                correct_ans: "A) អភិវឌ្ឍន៍websites វិភាគទិន្នន័យ និងបង្កើតប្រព័ន្ធបញ្ញាសិប្បនិមិត្ត",
+                score: 1
               },
               {
-                "title": "3. ហេតុអ្វីបានជា​ការ​រៀនភាសា pythonត្រូវបានគេពិចារណាថាជាសំខាន់សម្រាប់អ្នកចាប់ផ្តើម?",
-                "answers": [
+                title: "3. ហេតុអ្វីបានជា​ការ​រៀនភាសា pythonត្រូវបានគេពិចារណាថាជាសំខាន់សម្រាប់អ្នកចាប់ផ្តើម?",
+                answers: [
                   "A) ងាយស្រួលរៀន និងអាន ធ្វើឱ្យវាសមស្របសម្រាប់អ្នកចាប់ផ្តើមដំបូង",
                   "B) មានសហគមន៍អ្នកប្រើប្រាស់ធំ និងមានធនធានការរៀនរបស់ច្រើន",
                   "C) អាចប្រើប្រាស់បានទូលំទូលាយក្នុងវិស័យផ្សេងៗ ដូចជា វិទ្យាសាស្ត្រទិន្នន័យ បញ្ញាសិប្បនិមិត្ត និងការអភិវឌ្ឍន៍វេបសាយ",
                   "D) A, B, C"
                 ],
-                "correct_ans": "D) A, B, C",
-                "score": 1
+                correct_ans: "D) A, B, C",
+                score: 1
               }
             ]
           },
           {
-            "quiz_title": "Quiz 02",
-            "time": "2",
-            "questionsAnswers": [
+            quiz_title: "Quiz 02",
+            time_quiz_2: "2",
+            questionsAnswers: [
               {
-                "title": "1. របៀបRun Python ក្នុងកុំព្យូទ័រ?",
-                "answers": [
+                title: "1. របៀបRun Python ក្នុងកុំព្យូទ័រ?",
+                answers: [
                   "A) សរសេរកូដ Python នៅក្នុងកម្មវិធីនិពន្ធកូដ ដូចជា VS Code, Sublime Text ហើយប្រើប្រាស់ថាមពលបញ្ជា Terminal ដើម្បីប្រតិបត្តិការ",
                   "B) ប្រើប្រាស់កម្មវិធីចាប់ផ្ដើមកម្មវិធី Windows ដើម្បីបើកឯកសារ Python (.py)",
                   "C) ប្រើប្រាស់កម្មវិធី Microsoft Word ដើម្បីសរសេរកូដ ហើយបន្ទាប់មករក្សាទុកជាឯកសារ Python (.py)",
                   "D) បើកកម្មវិធីគេហទំព័រ ដូចជា Google Chrome ហើយបញ្ចូលកូដ Python នៅក្នុងប្រអប់អាសយដ្ឋាន"
                 ],
-                "correct_ans": "A) សរសេរកូដ Python នៅក្នុងកម្មវិធីនិពន្ធកូដ ដូចជា VS Code, Sublime Text ហើយប្រើប្រាស់ថាមពលបញ្ជា Terminal ដើម្បីប្រតិបត្តិការ",
-                "score": 1
+                correct_ans: "A) សរសេរកូដ Python នៅក្នុងកម្មវិធីនិពន្ធកូដ ដូចជា VS Code, Sublime Text ហើយប្រើប្រាស់ថាមពលបញ្ជា Terminal ដើម្បីប្រតិបត្តិការ",
+                score: 1
               },
               {
-                "title": "2. តើpython Indentation ជាអ្វី?",
-                "answers": [
+                title: "2. តើpython Indentation ជាអ្វី?",
+                answers: [
                   "A) វិធីសាស្រ្តកំណត់ចន្លោះបន្ទាត់សម្រាប់ភាពស្រស់ស្អាតនៃកូដ",
                   "B) ច្បាប់ចាំបាច់ក្នុងភាសា Python ដែលកំណត់រចនាសម្ព័ន្ធនៃប្លុកកូដ",
                   "C) វិធីសាស្រ្តសម្រាប់បន្ថែមយោបល់ក្នុងកូដ Python",
                   "D) វិធីសាស្រ្តសម្រាប់បង្កើនល្បឿននៃការប្រតិបត្តិការកូដ"
                 ],
-                "correct_ans": "B) ច្បាប់ចាំបាច់ក្នុងភាសា Python ដែលកំណត់រចនាសម្ព័ន្ធនៃប្លុកកូដ",
-                "score": 1
+                correct_ans: "B) ច្បាប់ចាំបាច់ក្នុងភាសា Python ដែលកំណត់រចនាសម្ព័ន្ធនៃប្លុកកូដ",
+                score: 1
               },
               {
-                "title": "3. អថេរក្នុង Pythonប្រើដើម្បីអ្វី?",
-                "answers": [
+                title: "3. អថេរក្នុង Pythonប្រើដើម្បីអ្វី?",
+                answers: [
                   "A) អថេរក្នុង Python អាចចាប់ផ្តើមដោយលេខ",
                   "B) អថេរក្នុង Python អាចប្រើប្រដាប់ខ្ញុំប្រុសក្នុងការកំណត់ឈ្មោះ",
                   "C) អថេរក្នុង Python អាចប្រើប្រាស់ដើម្បីរក្សាទុកទិន្នន័យផ្សេងៗ ដូចជា លេខ  និងតម្លៃBoolean",
                   "D) អថេរក្នុង Python មានភាពប្រែប្រួលនៃអក្សរធំ-អក្សរតូច"
                 ],
-                "correct_ans": "C) អថេរក្នុង Python អាចប្រើប្រាស់ដើម្បីរក្សាទុកទិន្នន័យផ្សេងៗ ដូចជា លេខ ខ្សែអក្សរ និងតម្លៃBoolean",
-                "score": 1
+                correct_ans: "C) អថេរក្នុង Python អាចប្រើប្រាស់ដើម្បីរក្សាទុកទិន្នន័យផ្សេងៗ ដូចជា លេខ ខ្សែអក្សរ និងតម្លៃBoolean",
+                score: 1
               }
             ]
           }
@@ -498,7 +447,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz: {
           quiz_title: "quiz 01",
-          time: "10",
+          time_quiz_1: "10",
           questionsAnswers: [
             {
               title: "1: មូលដ្ឋានសំខាន់ៗនៃ CSS",
@@ -527,7 +476,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz_2: {
           quiz_title: "quiz 02",
-          time: "10",
+          time_quiz_2: "10",
           questionsAnswers: [
             {
               title: "1.តើ Syntax មូលដ្ឋាននៃ CSS មានអ្វីខ្លះ?",
@@ -577,50 +526,50 @@ export const useCourses = defineStore('courses', {
         }
       },
       {
-        "courseId": "html",
-        "chapter_title": "ជំពូក​ 01: សេចក្តីណែនាំអំពីHTML",
-        "lesson_1": {
-          "title": "មេរៀនទី 01: សេចក្តីផ្តើម",
-          "time": "3mn",
-          "description": "HTML គឺជាភាសាសម្គាល់ដែលត្រូវបានប្រើប្រាស់ដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ។ វាកំណត់របៀបដែលអត្ថបទ រូបភាព និងធាតុផ្សេងទៀតត្រូវបានបង្ហាញនៅលើទំព័រ។",
-          "vdo_url": "https://youtu.be/it1rTvBcfRg?si=WxYr9CKMKX6OEOjG"
+        courseId: "html",
+        chapter_title: "ជំពូក​ 01: សេចក្តីណែនាំអំពីHTML",
+        lesson_1: {
+        title: "មេរៀនទី 01: សេចក្តីផ្តើម",
+        time: "3mn",
+        description: "HTML គឺជាភាសាសម្គាល់ដែលត្រូវបានប្រើប្រាស់ដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ។ វាកំណត់របៀបដែលអត្ថបទ រូបភាព និងធាតុផ្សេងទៀតត្រូវបានបង្ហាញនៅលើទំព័រ។",
+        vdo_url: "https://youtu.be/it1rTvBcfRg?si=WxYr9CKMKX6OEOjG"
         },
-        "quiz": {
-          "quiz_title": "Quiz 01",
-          "time": "2",
-          "questionsAnswers": [
+        quiz: {
+          quiz_title: "Quiz 01",
+          time_quiz_1: "2",
+          questionsAnswers: [
             {
-              "title": "1. តើ HTML Elements ជាអ្វី?",
-              "answers": [
+              title: "1. តើ HTML Elements ជាអ្វី?",
+              answers: [
                 "A) ធាតុ HTML គឺជាប្លុកសំណង់មូលដ្ឋាននៃគេហទំព័រ ដែលត្រូវបានបង្កើតឡើងដោយប្រើស្លាក",
                 "B) ធាតុ HTML គឺជាពណ៌ផ្ទៃខាងក្រោយនៃគេហទំព័រ",
                 "C) ធាតុ HTML គឺជារូបភាពដែលប្រើប្រាស់នៅលើគេហទំព័រ",
                 "D) ធាតុ HTML គឺជាភាសា JavaScript ដែលប្រើប្រាស់នៅក្នុងគេហទំព័រ"
               ],
-              "correct_ans": "A) ធាតុ HTML គឺជាប្លុកសំណង់មូលដ្ឋាននៃគេហទំព័រ ដែលត្រូវបានបង្កើតឡើងដោយប្រើស្លាក",
-              "score": 1
+              correct_ans: "A) ធាតុ HTML គឺជាប្លុកសំណង់មូលដ្ឋាននៃគេហទំព័រ ដែលត្រូវបានបង្កើតឡើងដោយប្រើស្លាក",
+              score: 1
             },
             {
-              "title": "2. តើ HTML អាចធ្វើអ្វីបានខ្លះ?",
-              "answers": [
+              title: "2. តើ HTML អាចធ្វើអ្វីបានខ្លះ?",
+              answers: [
                 "A) បង្កើតកម្មវិធីកុំព្យូទ័រដែលអាចដំណើរការបានដោយឯករាជ្យ",
                 "B) បង្កើតរចនាសម្ព័ន្ធ និងបង្ហាញមាតិកានៃគេហទំព័រ ដូចជា អត្ថបទ រូបភាព និងវីដេអូ",
                 "C) គ្រប់គ្រងប្រព័ន្ធប្រតិបត្តិការរបស់កុំព្យូទ័រ",
                 "D) បង្កើតកម្មវិធីទូរស័ព្ទដៃសម្រាប់ប្រព័ន្ធប្រតិបត្តិការ Android និង iOS"
               ],
-              "correct_ans": "B) បង្កើតរចនាសម្ព័ន្ធ និងបង្ហាញមាតិកានៃគេហទំព័រ ដូចជា អត្ថបទ រូបភាព និងវីដេអូ",
-              "score": 1
+              correct_ans: "B) បង្កើតរចនាសម្ព័ន្ធ និងបង្ហាញមាតិកានៃគេហទំព័រ ដូចជា អត្ថបទ រូបភាព និងវីដេអូ",
+              score: 1
             },
             {
-              "title": "3. តើ HTML Tags ជាអ្វី?",
-              "answers": [
+              title: "3. តើ HTML Tags ជាអ្វី?",
+              answers: [
                 "A) HTML Tags គឺជាពាក្យបញ្ជាដែលប្រើដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ ដូចជា កំណត់អត្ថបទ រូបភាព និងតារាង។",
                 "B) HTML Tags គឺជាភាសាសរសេរកម្មវិធីមួយប្រភេទដែលប្រើដើម្បីបង្កើតកម្មវិធីគេហទំព័រ។",
                 "C) HTML Tags គឺជាស្ទីលសម្រាប់ធ្វើឱ្យគេហទំព័រមើលទៅស្អាត និងទាក់ទាញ។",
                 "D) HTML Tags គឺជាអក្សរដែលប្រើសរសេរកូដ HTML ទាំងអស់។"
               ],
-              "correct_ans": "A) HTML Tags គឺជាពាក្យបញ្ជាដែលប្រើដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ ដូចជា កំណត់អត្ថបទ រូបភាព និងតារាង។",
-              "score": 1
+              correct_ans: "A) HTML Tags គឺជាពាក្យបញ្ជាដែលប្រើដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ ដូចជា កំណត់អត្ថបទ រូបភាព និងតារាង។",
+              score: 1
             }
           ]
         }
@@ -631,19 +580,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'មូលដ្ឋាន JavaScript',
         lesson_1: {
           title: 'JavaScript ជាអ្វី?',
-          time: '40',
+          time: '40:00',
           discription: 'JavaScriptដែលជាភាសាមួយដែលប្រៀបដូចជាសរសៃរឈាមក្នុងការភ្ជាប់ពីទំព័រមួយទៅទំព័រមួយផ្សេងទៀត ឬផ្នែកផ្សេងទៀត​ ដែលជំនួយដល់អ្នកប្រើប្រាស់ងាយស្រួលក្នុងការប្តូរទៅទំព័ផ្សេងទៀត។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://www.youtube.com/embed/7PJlHDOsiKY?si=8ivSCwC5zR6EUl8P',
         },
         lesson_2: {
           title: 'Function in JavaScript',
-          time: '20',
+          time: '20:00',
           discription: 'JavaScriptដែលជាភាសាមួយដែលប្រៀបដូចជាសរសៃរឈាមក្នុងការភ្ជាប់ពីទំព័រមួយទៅទំព័រមួយផ្សេងទៀត ឬផ្នែកផ្សេងទៀត​ ដែលជំនួយដល់អ្នកប្រើប្រាស់ងាយស្រួលក្នុងការប្តូរទៅទំព័ផ្សេងទៀត។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://www.youtube.com/embed/7PJlHDOsiKY?si=8ivSCwC5zR6EUl8P',
         },
         quiz: {
           quiz_title: "Quiz 01",
-          time: "2",
+          time_quiz_1: "2:00",
           questionsAnswers: [
             {
               title: "1.តើ JavaScript គឺជាអ្វី?",
@@ -692,7 +641,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz_2: {
           quiz_title: "Quiz 02",
-          time: "3",
+          time_quiz_2: "3:00",
           questionsAnswers: [
             {
               title: "1.តើ Operator "===" មានន័យថា:",
@@ -735,19 +684,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: សេចក្តីណែនាំអំពី JAVA',
         lesson_1: {
           title: 'មេរៀនទី 01: សេចក្តីផ្តើម JAVA',
-          time: '3',
+          time: '3:00',
           description: 'Java គឺជាភាសាសរសេរកម្មវិធី និងវេទិកាកុំព្យូទ័រដែលប្រើដើម្បីបង្កើតកម្មវិធីសម្រាប់ឧបករណ៍ជាច្រើន។ វាគឺជាជម្រើសដ៏ពេញនិយមសម្រាប់អ្នកអភិវឌ្ឍន៍ ព្រោះវាលឿន ជឿជាក់ និងសុវត្ថិភាព។',
           vdo_url: 'https://youtu.be/t54pgbVy6t0?si=DUr9ZDYxU040u1Gw'
         },
         lesson_2: {
           title: 'មេរៀនទី 02: ការបង្កើត Variable in JAVA',
-          time: '2mn',
+          time: '2:00',
           description: 'HTML គឺជាភាសាសម្គាល់ដែលត្រូវបានប្រើប្រាស់ដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ។ វាកំណត់របៀបដែលអត្ថបទ រូបភាព និងធាតុផ្សេងទៀតត្រូវបានបង្ហាញនៅលើទំព័រ។',
           vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
         },
         quiz: {
           quiz_title: 'Quiz 01',
-          time: '2',
+          time_quiz_1: '2:00',
           questionsAnswers: [
             {
               title: '1. តើ JAVA ជាអ្វី?',
@@ -790,19 +739,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: សេចក្តីណែនាំអំពី Bootstrap',
         lesson_1: {
           title: 'មេរៀនទី 01: Bootstrap ជាអ្វី?',
-          time: '3',
+          time: '3:00',
           description: 'នេះជាមេរៀនបង្រៀនពី Boostrap ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmpRKah2EZP1RPr8NG_u_d9i&si=gvnaNdZ2sPaIWmx_'
         },
         lesson_2: {
           title: 'មេរៀនទី 02: តើ Bootstrap ជាអ្វី?',
-          time: '2mn',
+          time: '2:00',
           description: 'យល់ដឹងអំពី 12-column grid system  Classes: .container, .row, និង .col របៀបបែងចែក Layout ដោយប្រើ Columns និង Rows ',
           vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
         },
         quiz: {
           quiz_title: 'Quiz 01',
-          time: '2',
+          time_quiz_1: '2:00',
           questionsAnswers: [
             {
               title: '1. តើ Bootstrap ជាអ្វី? ',
@@ -853,19 +802,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: 'ជំពូក​ 01: មូលដ្ឋាន Tailwind CSS',
         lesson_1: {
           title: 'មេរៀនទី 01: Tailwind CSS ជាអ្វី?',
-          time: '3',
+          time: '3:00',
           description: 'នេះជាមេរៀនបង្រៀនពី Tailwind Css ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmqNIl6xXOUQ5Qj6g0JBBgP6&si=czLc_c6Xbhy51sPE'
         },
         lesson_2: {
           title: 'មេរៀនទី 02: Tawind Syntax និង Classesil',
-          time: '2',
+          time: '2:00',
           description: 'Utility Classes គឺជាអ្វី? របៀបប្រើ Utility Classes ដើម្បីកំណត់ស្ទីល (Spacing, Colors, Flexbox)  ឧទាហរណ៍នៃការរចនាដោយប្រើ Tailwind Classes',
           vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
         },
         quiz: {
           quiz_title: 'Quiz 01',
-          time: '2',
+          time_quiz_1: '2:00',
           questionsAnswers: [
             {
               title: '1. តើ Tailwind CSS ជាអ្វី ',
