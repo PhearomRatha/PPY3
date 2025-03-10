@@ -106,14 +106,25 @@
         <section v-if="isshowQuizVisible && !isQuizSubmitted" class="w-full h-[500px]">
           <div class="flex justify-between">
             <h1 class="text-lg font-bold">Quiz</h1>
-            <p class="text-lg font-bold">{{ activeItem === 'quiz_1' ? displayTime : getDefaultTime('quiz_1') }} min</p>
+            <p class="text-lg font-bold">
+              {{ activeItem === 'quiz_1' ? displayTime : getDefaultTime('quiz_1') }} min
+            </p>
           </div>
+
           <div class="indent-5" v-for="(quiz, index) in currentChapter?.quiz.questionsAnswers" :key="quiz.correct_ans">
             <div class="mt-3 h-auto shadow-lg bg-white p-2">
+
+              <!-- Question Title and Score -->
               <div class="flex">
                 <h1 class="text-lg font-bold">{{ quiz.title }}</h1>
                 <p class="text-lg font-bold mt-3">{{ quiz.score }}pt</p>
+
               </div>
+
+
+
+
+              <!-- Answer Choices -->
               <div v-for="(ans, ansIndex) in quiz.answers" :key="ansIndex">
                 <label>
                   <input class="w-[1.2rem] h-[1.2rem] mt-3" type="radio" :name="`quiz-${index}`" :value="ans"
@@ -121,8 +132,14 @@
                   {{ ans }}
                 </label>
               </div>
+              <p v-if="missingAnswers[index]" class="text-red-600 font-bold mt-2">
+                {{ missingAnswers[index] }}
+              </p>
+
+
             </div>
           </div>
+
           <button @click="submitQuiz"
             class="bg-green-800 text-white px-10 py-3 ml-[85%] rounded-lg my-3 hover:bg-green-500">
             Submit
@@ -130,12 +147,13 @@
         </section>
 
 
-      
-         <section v-if="isQuizSubmitted">
 
-          <h2 class="text-lg font-bold">Quiz Results</h2>
+
+        <section v-if="isQuizSubmitted">
+
+          <h2 class="text-lg font-bold text-center">Quiz Results</h2>
           <div class="mt-6">
-            <h2 class="text-lg font-bold">Your Score: {{ totalScore }}</h2>
+
             <div v-for="(quiz, index) in currentChapter?.quiz.questionsAnswers" :key="index">
               <div class="mt-3 h-auto shadow-lg bg-white p-2">
                 <div class="flex">
@@ -143,7 +161,7 @@
                   <p class="text-lg font-bold mt-3">{{ quiz.score }}pt</p>
                 </div>
                 <div v-for="(ans, ansIndex) in quiz.answers" :key="ansIndex">
-                  <label>
+                  <label class="leading-10">
                     <span :class="{
                       'text-green-600': ans === quiz.correct_ans,
                       'text-red-600': ans === quiz.selectedAnswer && ans !== quiz.correct_ans
@@ -156,6 +174,11 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="bg-green-700 w-full h-1/4 text-center  text-white">
+            <p class="text-lg font-bold mt-3">{{ resultMessage }}</p>
+            <p class="text-lg font-bold mt-3">Your Score: {{ totalScore }} / {{ totalPossibleScore }} points</p>
           </div>
         </section>
         <section v-if="isshowQuiz_2Visible" class="w-full h-[500px]">
@@ -205,12 +228,20 @@ export default {
       isshowLesson_2Visible: false,
       isshowQuiz_2Visible: false,
       isQuizSubmitted: false,
+      missingAnswers: {},
       totalScore: 0,
       remainingTime: "",
       timer: null,
       activeItem: null,
+      totalPossibleScore: 0,
     };
   },
+  computed: {
+    totalPossibleScore() {
+      return this.currentChapter?.quiz?.questionsAnswers.reduce((sum, quiz) => sum + (quiz.score || 0), 0);
+    },
+  },
+
   mounted() {
 
     if (this.activeItem) {
@@ -259,90 +290,123 @@ export default {
         (chapter) => chapter.courseId === this.courseId
       );
     },
+
     submitQuiz() {
-  this.totalScore = 0;
-  this.isQuizSubmitted = true;
+      this.totalScore = 0;
+      this.missingAnswers = {};
+      let totalPossibleScore = 0;
 
-  // Ensure the array exists before looping
-  if (this.currentChapter?.quiz?.questionsAnswers_quiz_1) {
-    this.currentChapter.quiz.questionsAnswers_quiz_1.forEach((quiz) => {
-      quiz.isCorrect = quiz.selectedAnswer === quiz.correct_ans;
-      if (quiz.isCorrect) {
-        this.totalScore += quiz.score;
+      if (!this.currentChapter?.quiz.questionsAnswers) {
+        console.error("Quiz data is missing!");
+        return;
       }
-    });
-  } else {
-    console.error("questionsAnswers_quiz_1 is undefined or empty!");
-  }
-},
 
-
-    
-   
-
-      startCountdown(time) {
-        clearInterval(this.timer);
-
-        let [minutes, seconds] = time.split(":").map(Number);
-
-        this.timer = setInterval(() => {
-          if (minutes === 0 && seconds === 0) {
-            clearInterval(this.timer);
-            this.remainingTime = "00:00";
-            return;
-          }
-          if (seconds === 0) {
-            minutes--;
-            seconds = 59;
-          } else {
-            seconds--;
-          }
-          this.remainingTime = `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-        }, 1000);
-      },
-      getDefaultTime(item) {
-        switch (item) {
-          case "lesson_1":
-            return this.currentChapter?.lesson_1.time || "00:00";
-          case "quiz_1":
-            return this.currentChapter?.quiz.time_quiz_1 || "00:00";
-          case "lesson_2":
-            return this.currentChapter?.lesson_2.time || "00:00";
-          case "quiz_2":
-            return this.currentChapter?.quiz.time_quiz_2 || "00:00";
-          default:
-            return "00:00";
-        }
-      },
-    },
-
-
-
-    computed: {
-      currentCourse() {
-        return this.coursesDetails.find((course) => course.id === this.courseId);
-      },
-      currentChapter() {
-        return this.courseDetailsChapter[0] || null;
-      },
-      displayTime() {
-        // Display the remaining time for the active item, or the default time for inactive items
-        if (this.activeItem) {
-          return this.remainingTime;
+      this.currentChapter.quiz.questionsAnswers.forEach((quiz, index) => {
+        if (!quiz.selectedAnswer) {
+          this.missingAnswers[index] = "Please choose an answer!";
         } else {
-          return this.getDefaultTime(this.activeItem);
+          delete this.missingAnswers[index];
+          if (quiz.selectedAnswer === quiz.correct_ans) {
+            this.totalScore += quiz.score;
+          }
+          totalPossibleScore += quiz.score;
         }
-      },
+      });
+
+      this.totalPossibleScore = totalPossibleScore;
+
+
+      const percentage = (this.totalScore / totalPossibleScore) * 100;
+      console.log(percentage);
+
+
+      if (percentage === 100) {
+        this.resultMessage = "Congratulations! 🎉 Finally, you passed it! Well done!";
+      } else if (percentage >= 50) {
+        this.resultMessage = "Keep going, dear! 💪 You're doing great!";
+      } else if (percentage >= 25) {
+        this.resultMessage = "That's okay! Try again next time! 😊 You can do it!";
+      } else {
+        this.resultMessage = "Don't give up! Keep trying! 💡 You'll get it soon!";
+      }
+
+      if (Object.keys(this.missingAnswers).length > 0) {
+        return;
+      }
+
+      this.isQuizSubmitted = true;
     },
-    watch: {
-      '$route.params.courseId'(newId) {
-        this.courseId = newId;
-        this.findChapterByCourseId();
-      },
+
+
+
+
+
+
+
+
+    startCountdown(time) {
+      clearInterval(this.timer);
+
+      let [minutes, seconds] = time.split(":").map(Number);
+
+      this.timer = setInterval(() => {
+        if (minutes === 0 && seconds === 0) {
+          clearInterval(this.timer);
+          this.remainingTime = "00:00";
+          return;
+        }
+        if (seconds === 0) {
+          minutes--;
+          seconds = 59;
+        } else {
+          seconds--;
+        }
+        this.remainingTime = `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+      }, 1000);
     },
-    created() {
-      this.coursesDetails = this.useCourses.getCoursesDetails;
+    getDefaultTime(item) {
+      switch (item) {
+        case "lesson_1":
+          return this.currentChapter?.lesson_1.time || "00:00";
+        case "quiz_1":
+          return this.currentChapter?.quiz.time_quiz_1 || "00:00";
+        case "lesson_2":
+          return this.currentChapter?.lesson_2.time || "00:00";
+        case "quiz_2":
+          return this.currentChapter?.quiz.time_quiz_2 || "00:00";
+        default:
+          return "00:00";
+      }
+    },
+  },
+
+
+
+  computed: {
+    currentCourse() {
+      return this.coursesDetails.find((course) => course.id === this.courseId);
+    },
+    currentChapter() {
+      return this.courseDetailsChapter[0] || null;
+    },
+    displayTime() {
+
+      if (this.activeItem) {
+        return this.remainingTime;
+      } else {
+        return this.getDefaultTime(this.activeItem);
+      }
+    },
+  },
+  watch: {
+    '$route.params.courseId'(newId) {
+      this.courseId = newId;
       this.findChapterByCourseId();
     },
-  };
+  },
+  created() {
+    this.coursesDetails = this.useCourses.getCoursesDetails;
+    this.findChapterByCourseId();
+  },
+};
 </script>
