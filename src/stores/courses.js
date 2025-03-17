@@ -346,7 +346,7 @@ export const useCourses = defineStore('courses', {
         },
         lesson_2: {
         title: "មេរៀនទី 02: Python - Syntax?",
-        time: "2",
+        time: "2:00",
         discription: "Syntax ភាសា Python គឺជាសំណុំនៃច្បាប់ដែលកំណត់របៀបសរសេរ និងបកប្រែភាសា។ វាត្រូវបានរចនាឡើងឱ្យមានភាពច្បាស់លាស់ ងាយស្រួលអាន និងងាយស្រួលរៀន។ ខាងក្រោមនេះគឺជាចំណុចសំខាន់ៗមួយចំនួន៖ការវិលចូល (Indentation) ភាពប្រែប្រួលនៃអក្សរធំ-អក្សរតូច ពាក្យគន្លឹះ (Keywords) ប្រភេទទិន្នន័យអថេរ",
         vdo_url: "https://youtu.be/4WVZBtqqVM4?si=U7k6D-qsKGm_Gv4T"
         },
@@ -392,7 +392,7 @@ export const useCourses = defineStore('courses', {
           },
           {
             quiz_title: "Quiz 02",
-            time_quiz_2: "2",
+            time_quiz_2: "2:00",
             questionsAnswers: [
               {
                 title: "1. របៀបRun Python ក្នុងកុំព្យូទ័រ?",
@@ -437,19 +437,19 @@ export const useCourses = defineStore('courses', {
         chapter_title: ' មូលដ្ឋានសំខាន់ៗនៃ CSS',
         lesson_1: {
           title: 'CSS ជាអ្វី',
-          time: '10',
+          time: '10:00',
           discription: 'CSS គឺជាភាសាមួយសម្រាប់ជំនួយដល់ការកែលំអរផ្ទៃខាងមុខនៃ website របស់យើងអោយកាន់តែស្រស់ស្អាត។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។តួនាទីរបស់ CSS ក្នុងការរចនាម៉ោងបណ្ដាការភ្ជាប់ CSS ជាមួយ HTML (Inline, Internal, និង External CSS)',
           vdo_url: 'https://www.youtube.com/embed/qHjthC0n-sU?si=jKQT6SUXt5zBpVzM',
         },
         lesson_2: {
           title: 'ការរចនាstyleមូលដ្ឋាន',
-          time: '10',
+          time: '10:00',
           discription: 'នេះជាមេរៀនបង្រៀនពី CSS ដែលជាភាសាមួយសម្រាប់ជំនួយដល់ការកែលំអរផ្ទៃខាងមុខនៃ វេបសាយ៍ របស់យើងអោយកាន់តែស្រស់ស្អាត។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
           vdo_url: 'https://youtube.com/playlist?list=PLuEdNLfGOtnXQgIxwuOjWvhE4pvxJghhk&si=QHnDSVwXYf44fMgs',
         },
         quiz: {
           quiz_title: "quiz 01",
-          time_quiz_1: "10",
+          time_quiz_1: "10:00",
           questionsAnswers: [
             {
               title: "1: មូលដ្ឋានសំខាន់ៗនៃ CSS",
@@ -478,7 +478,7 @@ export const useCourses = defineStore('courses', {
         },
         quiz_2: {
           quiz_title: "quiz 02",
-          time_quiz_2: "10",
+          time_quiz_2: "10:00",
           questionsAnswers: [
             {
               title: "1.តើ Syntax មូលដ្ឋាននៃ CSS មានអ្វីខ្លះ?",
@@ -532,13 +532,13 @@ export const useCourses = defineStore('courses', {
         chapter_title: "ជំពូក​ 01: សេចក្តីណែនាំអំពីHTML",
         lesson_1: {
         title: "មេរៀនទី 01: សេចក្តីផ្តើម",
-        time: "3mn",
+        time: "3:00",
         description: "HTML គឺជាភាសាសម្គាល់ដែលត្រូវបានប្រើប្រាស់ដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ។ វាកំណត់របៀបដែលអត្ថបទ រូបភាព និងធាតុផ្សេងទៀតត្រូវបានបង្ហាញនៅលើទំព័រ។",
         vdo_url: "https://youtu.be/it1rTvBcfRg?si=WxYr9CKMKX6OEOjG"
         },
         quiz: {
           quiz_title: "Quiz 01",
-          time_quiz_1: "2",
+          time_quiz_1: "2:00",
           questionsAnswers: [
             {
               title: "1. តើ HTML Elements ជាអ្វី?",
