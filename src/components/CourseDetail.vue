@@ -82,7 +82,7 @@
           <div class="w-full rounded-md">
             <iframe class="w-full h-[300px]" :src="currentChapter?.lesson_1.vdo_url" frameborder="0"></iframe>
           </div>
-          <div class="w-full bg-white h-auto rounded-lg mb-3">
+          <div class="w-full bg-white h-full rounded-lg mb-5">
             <h1 class="text-lg font-bold indent-5 leading-[50px]">{{ currentChapter?.lesson_1.title }}</h1>
             <p class="indent-[30px] leading-[30px] text-center">{{ currentChapter?.lesson_1.discription }}</p>
 
@@ -155,7 +155,7 @@
           <div class="mt-6">
 
             <div v-for="(quiz, index) in currentChapter?.quiz.questionsAnswers" :key="index">
-              <div class="mt-3 h-auto shadow-lg bg-white p-2">
+              <div class="mt-3 h-auto shadow-lg bg-white p-5">
                 <div class="flex">
                   <h1 class="text-lg font-bold">{{ quiz.title }}</h1>
                   <p class="text-lg font-bold mt-3">{{ quiz.score }}pt</p>
@@ -257,13 +257,14 @@ export default {
       this.isshowQuizVisible = false;
       this.isshowLesson_2Visible = false;
       this.isshowQuiz_2Visible = false;
-
+      this.isQuizSubmitted = false;
       this.activeItem = "lesson_1";
       this.startCountdown(this.getDefaultTime("lesson_1"));
     },
     showQuiz() {
       this.isshowLessonVisible = false;
       this.isshowQuizVisible = true;
+      this.isQuizSubmitted = false;
       this.isshowLesson_2Visible = false;
       this.isshowQuiz_2Visible = false;
       this.activeItem = "quiz_1";
@@ -272,6 +273,7 @@ export default {
     showLesson_2() {
       this.isshowLessonVisible = false;
       this.isshowQuizVisible = false;
+      this.isQuizSubmitted = false;
       this.isshowLesson_2Visible = true;
       this.isshowQuiz_2Visible = false;
       this.activeItem = "lesson_2";
@@ -283,6 +285,7 @@ export default {
       this.isshowLesson_2Visible = false;
       this.isshowQuiz_2Visible = true;
       this.activeItem = "quiz_2";
+      this.isQuizSubmitted = false;
       this.startCountdown(this.getDefaultTime("quiz_2"));
     },
     findChapterByCourseId() {
@@ -292,6 +295,7 @@ export default {
     },
 
     submitQuiz() {
+
       this.totalScore = 0;
       this.missingAnswers = {};
       let totalPossibleScore = 0;
