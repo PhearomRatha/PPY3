@@ -175,7 +175,6 @@
               </div>
             </div>
           </div>
-
           <div class="bg-green-700 w-full h-1/4 text-center  text-white">
             <p class="text-lg font-bold mt-3">{{ resultMessage }}</p>
             <p class="text-lg font-bold mt-3">Your Score: {{ totalScore }} / {{ totalPossibleScore }} points</p>
@@ -327,11 +326,11 @@ export default {
       if (percentage === 100) {
         this.resultMessage = "Congratulations! 🎉 Finally, you passed it! Well done!";
       } else if (percentage >= 50) {
-        this.resultMessage = "Keep going, dear! 💪 You're doing great!";
+        this.resultMessage = "Keep going, dear! You're doing great!";
       } else if (percentage >= 25) {
-        this.resultMessage = "That's okay! Try again next time! 😊 You can do it!";
+        this.resultMessage = "That's okay! Try again next time!  You can do it!";
       } else {
-        this.resultMessage = "Don't give up! Keep trying! 💡 You'll get it soon!";
+        this.resultMessage = "Don't give up! Keep trying!  You'll get it soon!";
       }
 
       if (Object.keys(this.missingAnswers).length > 0) {

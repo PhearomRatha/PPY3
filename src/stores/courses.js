@@ -862,15 +862,7 @@ export const useCourses = defineStore('courses', {
           ]
         }
       },
-      
 
-
-
-
-
-
-    
-    
 
 
     ]
