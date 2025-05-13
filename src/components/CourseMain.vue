@@ -10,7 +10,7 @@
         :id="course.id"
         class="p-5 rounded-md text-center"
       >
-        <p class=" rounded-sm text-white bg-green-500 w-[55px] py-[2.5px] mt-[-15px] ml-[-15px]">free</p>
+       
         <h3 class="text-2xl font-bold mb-2">{{ course.programming_lng }}</h3>
 
         <p class="mb-4 text-sm font-semibold">A programming language</p>

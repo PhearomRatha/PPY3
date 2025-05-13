@@ -5,7 +5,7 @@
       <div class="flex gap-10">
       <!-- Logo Section -->
       <li class="">
-        <img @click="navigationToOtherPage('')" class=" w-[100px] ml-1 mt-4 " src="@/assets/Logo.png" alt="Logo" />
+        <img @click="navigationToOtherPage('')" class=" w-[100px] ml-5 mt-4 " src="@/assets/Logo.png" alt="Logo" />
       </li>
 
       <!-- Dropdown Section -->

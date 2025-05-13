@@ -1,38 +1,4 @@
-<script>
-export default {
-  emits: ["word-captured"], 
-  data() {
-    return {
-      words: ["HTML", "CSS", "JAVASCRIPT", "Vue.js", "React", "PYTHON", "JAVA", "C", "C++", "BOOTSTRAP"],
-      currentWordIndex: 0,
-      currentLetterIndex: 0,
-      displayWord: "",
-    };
-  },
-  methods: {
-    startWordCycle() {
-      setInterval(() => {
-        const currentWord = this.words[this.currentWordIndex];
-        if (this.currentLetterIndex < currentWord.length) {
-          this.displayWord += currentWord[this.currentLetterIndex];
-          this.currentLetterIndex++;
-          // Emit the current displayWord to App.vue
-          this.$emit("word-captured", this.displayWord);
-          // console.log("Emitted word:",this.words);
 
-        } else {
-          this.displayWord = "";
-          this.currentLetterIndex = 0;
-          this.currentWordIndex = (this.currentWordIndex + 1) % this.words.length;
-        }
-      }, 500);
-    },
-  },
-  mounted() {
-    this.startWordCycle(); 
-  },
-};
-</script>
 
 <template>
   <div class="homepage relative z-[-999] w-screen h-screen ">
@@ -72,7 +38,51 @@ export default {
      <p class="mt-[8rem] text-lg ml-[-20rem] text-gray-300">Not sure where to begin ?</p>
     </section>
   </div>
+
+  <div>
+    <button @click="navigationToOtherPage ('profile')" >Go to profile page</button>
+  </div>
 </template>
+
+<script>
+// import profilePage from '@/components/profilePage.vue';
+export default {
+  emits: ["word-captured"], 
+  data() {
+    return {
+      words: ["HTML", "CSS", "JAVASCRIPT", "Vue.js", "React", "PYTHON", "JAVA", "C", "C++", "BOOTSTRAP"],
+      currentWordIndex: 0,
+      currentLetterIndex: 0,
+      displayWord: "",
+    };
+  },
+  methods: {
+    navigationToOtherPage(routerName){
+      this.$router.push(`/${routerName}`)
+    },
+    startWordCycle() {
+      setInterval(() => {
+        const currentWord = this.words[this.currentWordIndex];
+        if (this.currentLetterIndex < currentWord.length) {
+          this.displayWord += currentWord[this.currentLetterIndex];
+          this.currentLetterIndex++;
+          // Emit the current displayWord to App.vue
+          this.$emit("word-captured", this.displayWord);
+          // console.log("Emitted word:",this.words);
+
+        } else {
+          this.displayWord = "";
+          this.currentLetterIndex = 0;
+          this.currentWordIndex = (this.currentWordIndex + 1) % this.words.length;
+        }
+      }, 500);
+    },
+  },
+  mounted() {
+    this.startWordCycle(); 
+  },
+};
+</script>
 
 <style >
 .homepage img {
