@@ -38,7 +38,7 @@
           <h1 class="ml-auto mr-5 text-[15px]">
             {{ activeItem === 'quiz_1' ? displayTime : getDefaultTime('quiz_1') }} min
           </h1>
-     
+
         </section>
         <section @click="showLesson_2" :class="{ 'border-2 border-red-500': isshowLesson_2Visible }"
           class="mt-2 bg-blue-200 rounded-lg mr-3 h-[45px] flex items-center gap-5">
@@ -51,7 +51,7 @@
           <h1 class="cursor-pointer text-[13px] ">{{ currentChapter?.lesson_2.title }}</h1>
           <h1 class="ml-auto mr-5 text-[15px]">{{ activeItem === 'lesson_2' ? displayTime : getDefaultTime('lesson_2')
           }}min</h1>
-     
+
 
         </section>
         <section @click="showQuiz_2" :class="{ 'border-2 border-red-500': isshowQuiz_2Visible }"
@@ -66,7 +66,7 @@
           <h1 class="ml-auto mr-3 text-[15px]">
             {{ activeItem === 'quiz_2' ? displayTime : getDefaultTime('quiz_2') }} min
           </h1>
-      
+
         </section>
       </div>
     </aside>
@@ -147,9 +147,10 @@
         <section v-if="isQuizSubmitted">
           <h2 class="text-lg font-bold text-center">Quiz Results</h2>
           <div class="mt-6">
-            <div v-for="(quiz, index) in activeItem === 'quiz_1'
+            <div v-for="(quiz, index) in (activeItem === 'quiz_1'
               ? currentChapter?.quiz.questionsAnswers
-              : currentChapter?.quiz.questionsAnswers_quiz_2" :key="index">
+              : currentChapter?.quiz.questionsAnswers_quiz_2)" :key="index">
+
               <div class="mt-3 h-auto shadow-lg bg-white p-5">
                 <div class="flex">
                   <h1 class="text-lg font-bold">{{ quiz.title }}</h1>
@@ -190,6 +191,8 @@
 
 <script>
 import { useCourses } from '@/stores/courses';
+import { useQuizStore } from '@/stores/quizStore';
+
 
 export default {
   data() {
@@ -261,6 +264,37 @@ export default {
   },
 
   methods: {
+submitQuiz() {
+  // ... existing validation and scoring code ...
+
+  // Prepare quiz result data
+  const quizResult = {
+    courseId: this.courseId,
+    courseTitle: this.currentCourse?.title, // Add course title
+    chapterTitle: this.currentChapter?.chapter_title,
+    lessonTitle: this.activeItem.includes('lesson') 
+      ? this.currentChapter?.[this.activeItem]?.title 
+      : null,
+    quizTitle: this.activeItem.includes('quiz') 
+      ? this.currentChapter?.quiz[`quiz_title_${this.activeItem.split('_')[1]}`] 
+      : null,
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString(),
+    score: this.totalScore,
+    totalPossibleScore: this.totalPossibleScore,
+    timeTaken: this.quizResults.timeTaken,
+    status: (this.totalScore / this.totalPossibleScore) >= 0.5 ? 'completed' : 'pending',
+    percentage: Math.round((this.totalScore / this.totalPossibleScore) * 100)
+  };
+
+  // Save to Pinia store
+  const quizStore = useQuizStore();
+  quizStore.saveResult(quizResult);
+
+  // Mark quiz as submitted
+  this.isQuizSubmitted = true;
+},
+
     showLesson() {
       this.isshowLessonVisible = true;
       this.isshowQuizVisible = false;
@@ -313,6 +347,7 @@ export default {
       this.totalScore = 0;
       this.missingAnswers = {};
       let totalPossibleScore = 0;
+      this.saveQuizResults
 
       // Determine which quiz to use based on activeItem
       const allQuestions = this.activeItem === "quiz_1"
