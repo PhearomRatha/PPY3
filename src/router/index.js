@@ -31,6 +31,11 @@ const routes = [
     path:'/profile',
     name:'profile',
     component:()=> import('@/components/profilePage.vue')
+  },
+  {
+     path: '/detail_quiz',
+  name: 'DetailQuiz',
+    component:()=> import('@/components/DetailQuiz.vue')
   }
   
 ];

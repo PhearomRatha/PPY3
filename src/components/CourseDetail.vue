@@ -123,13 +123,20 @@
               </div>
 
               <!-- Answer Choices -->
-              <div v-for="(ans, ansIndex) in quiz.answers" :key="ansIndex">
-                <label>
-                  <input class="w-[1.2rem] h-[1.2rem] mt-3" type="radio" :name="`quiz-${activeItem}-${index}`"
-                    :value="ans" v-model="quiz.selectedAnswer" />
-                  {{ ans }}
-                </label>
-              </div>
+            <div v-for="(ans, ansIndex) in quiz.answers" :key="ansIndex">
+  <label>
+    <input
+      class="w-[1.2rem] h-[1.2rem] mt-3"
+      type="radio"
+      :name="`quiz-${activeItem}-${index}`"
+      :value="ans"
+      v-model="quiz.selectedAnswer"
+      @change="selectAnswer(index, ans)" 
+    />
+    {{ ans }}
+  </label>
+</div>
+
 
               <p v-if="missingAnswers[index]" class="text-red-600 font-bold mt-2">
                 {{ missingAnswers[index] }}
@@ -174,8 +181,9 @@
 
           <div class="bg-green-700 w-full h-1/4 text-center text-white">
             <p class="text-lg font-bold mt-3">{{ resultMessage }}</p>
-            <p class="text-lg font-bold mt-3">Your Score: {{ totalScore }} / {{ totalPossibleScore }} points</p>
+            <p class="text-lg font-bold mt-3">You got: {{ totalScore }} / {{ totalPossibleScore }} points</p>
             <p class="text-lg font-bold mt-3" v-if="quizResults.timeTaken">Time Taken: {{ quizResults.timeTaken }}</p>
+              <p class="text-lg font-bold mt-3" v-if="quizResults.submittedAt">Submitted At: {{ quizResults.submittedAt }}</p>
           </div>
         </section>
 
@@ -192,7 +200,6 @@
 <script>
 import { useCourses } from '@/stores/courses';
 import { useQuizStore } from '@/stores/quizStore';
-
 
 export default {
   data() {
@@ -214,24 +221,26 @@ export default {
       quizStartTime: null,
       resultMessage: "",
       quizTimeStopped: false,
+        userAnswers: [],
       quizResults: {
-        timeTaken: null
+        timeTaken: null,
+        submittedAt: null,
       }
     };
   },
 
   computed: {
     displayTime() {
-
       if (this.remainingTime !== "00:00") {
         return this.remainingTime;
       }
-
       return this.getDefaultTime(this.activeItem);
     },
+
     currentCourse() {
-      return this.coursesDetails.find((course) => course.id === this.courseId);
+      return this.coursesDetails.find(course => course.id === this.courseId);
     },
+
     currentChapter() {
       return this.courseDetailsChapter[0] || null;
     },
@@ -248,6 +257,11 @@ export default {
     },
   },
 
+  created() {
+    this.coursesDetails = this.useCourses.getCoursesDetails;
+    this.findChapterByCourseId();
+  },
+
   mounted() {
     if (this.activeItem) {
       this.startCountdown(this.getDefaultTime(this.activeItem));
@@ -258,181 +272,39 @@ export default {
     clearInterval(this.timer);
   },
 
-  created() {
-    this.coursesDetails = this.useCourses.getCoursesDetails;
-    this.findChapterByCourseId();
-  },
-
   methods: {
-submitQuiz() {
-  // ... existing validation and scoring code ...
-
-  // Prepare quiz result data
-  const quizResult = {
-    courseId: this.courseId,
-    courseTitle: this.currentCourse?.title, // Add course title
-    chapterTitle: this.currentChapter?.chapter_title,
-    lessonTitle: this.activeItem.includes('lesson') 
-      ? this.currentChapter?.[this.activeItem]?.title 
-      : null,
-    quizTitle: this.activeItem.includes('quiz') 
-      ? this.currentChapter?.quiz[`quiz_title_${this.activeItem.split('_')[1]}`] 
-      : null,
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString(),
-    score: this.totalScore,
-    totalPossibleScore: this.totalPossibleScore,
-    timeTaken: this.quizResults.timeTaken,
-    status: (this.totalScore / this.totalPossibleScore) >= 0.5 ? 'completed' : 'pending',
-    percentage: Math.round((this.totalScore / this.totalPossibleScore) * 100)
-  };
-
-  // Save to Pinia store
-  const quizStore = useQuizStore();
-  quizStore.saveResult(quizResult);
-
-  // Mark quiz as submitted
-  this.isQuizSubmitted = true;
-},
+    findChapterByCourseId() {
+      this.courseDetailsChapter = this.useCourses.getCourseDetailsChapter.filter(
+        chapter => chapter.courseId === this.courseId
+      );
+    },
 
     showLesson() {
-      this.isshowLessonVisible = true;
-      this.isshowQuizVisible = false;
-      this.isshowLesson_2Visible = false;
-      this.isshowQuiz_2Visible = false;
-      this.isQuizSubmitted = false;
-      this.activeItem = "lesson_1";
-      this.startCountdown(this.getDefaultTime("lesson_1"));
+      this.setViewStates(true, false, false, false, "lesson_1");
     },
 
     showQuiz() {
-      this.isshowLessonVisible = false;
-      this.isshowQuizVisible = true;
-      this.isQuizSubmitted = false;
-      this.isshowLesson_2Visible = false;
-      this.isshowQuiz_2Visible = false;
-      this.activeItem = "quiz_1";
+      this.setViewStates(false, true, false, false, "quiz_1");
       this.quizStartTime = new Date();
-      this.startCountdown(this.getDefaultTime("quiz_1"));
     },
 
     showLesson_2() {
-      this.isshowLessonVisible = false;
-      this.isshowQuizVisible = false;
-      this.isQuizSubmitted = false;
-      this.isshowLesson_2Visible = true;
-      this.isshowQuiz_2Visible = false;
-      this.activeItem = "lesson_2";
-      this.startCountdown(this.getDefaultTime("lesson_2"));
+      this.setViewStates(false, false, true, false, "lesson_2");
     },
 
     showQuiz_2() {
-      this.isshowLessonVisible = false;
-      this.isshowQuizVisible = false;
-      this.isshowLesson_2Visible = false;
-      this.isshowQuiz_2Visible = true;
-      this.activeItem = "quiz_2";
-      this.isQuizSubmitted = false;
-
+      this.setViewStates(false, false, false, true, "quiz_2");
       this.quizStartTime = new Date();
-      this.startCountdown(this.getDefaultTime("quiz_2"));
     },
 
-    findChapterByCourseId() {
-      this.courseDetailsChapter = this.useCourses.getCourseDetailsChapter.filter(
-        (chapter) => chapter.courseId === this.courseId
-      );
-    },
-    submitQuiz() {
-      this.totalScore = 0;
-      this.missingAnswers = {};
-      let totalPossibleScore = 0;
-      this.saveQuizResults
-
-      // Determine which quiz to use based on activeItem
-      const allQuestions = this.activeItem === "quiz_1"
-        ? this.currentChapter?.quiz.questionsAnswers
-        : this.currentChapter?.quiz.questionsAnswers_quiz_2;
-
-      if (!allQuestions) {
-        console.error("Quiz data is missing!");
-        return;
-      }
-
-      // First pass: Check for missing answers
-      allQuestions.forEach((quiz, index) => {
-        if (!quiz.selectedAnswer) {
-          this.missingAnswers[index] = "Please choose an answer!";
-        }
-      });
-
-      // If there are missing answers, don't proceed with scoring
-      if (Object.keys(this.missingAnswers).length > 0) {
-        return;
-      }
-
-      // Stop timer and calculate time taken
-      clearInterval(this.timer);
-      const endTime = new Date();
-      this.quizResults.timeTaken = this.calculateTimeTaken(this.quizStartTime, endTime);
-
-      // Second pass: Calculate score
-      allQuestions.forEach((quiz) => {
-        if (quiz.selectedAnswer === quiz.correct_ans) {
-          this.totalScore += quiz.score || 0;
-        }
-        totalPossibleScore += quiz.score || 0;
-      });
-
-      // Determine result message based on percentage
-      const percentage = totalPossibleScore > 0
-        ? (this.totalScore / totalPossibleScore) * 100
-        : 0;
-
-      if (percentage === 100) {
-        this.resultMessage = "Congratulations! 🎉 You passed with perfect score!";
-      } else if (percentage >= 50) {
-        this.resultMessage = "Well done! You passed the quiz!";
-      } else if (percentage >= 25) {
-        this.resultMessage = "Good effort! Try again to improve your score!";
-      } else {
-        this.resultMessage = "Keep practicing! You'll do better next time!";
-      }
-
-      // Mark quiz as submitted
-      this.isQuizSubmitted = true;
-      this.totalPossibleScore = totalPossibleScore;
-    },
-
-
-    calculateTimeTaken(startTime, endTime) {
-      const diffInSeconds = Math.floor((endTime - startTime) / 1000);
-      const minutes = Math.floor(diffInSeconds / 60);
-      const seconds = diffInSeconds % 60;
-      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    },
-
-    startCountdown(time) {
-      clearInterval(this.timer);
-
-      let [minutes, seconds] = time.split(":").map(Number);
-
-      this.timer = setInterval(() => {
-        if (minutes === 0 && seconds === 0) {
-          clearInterval(this.timer);
-          this.remainingTime = "00:00";
-          // Optional: Auto-submit when time runs out
-          // this.submitQuiz();
-          return;
-        }
-        if (seconds === 0) {
-          minutes--;
-          seconds = 59;
-        } else {
-          seconds--;
-        }
-        this.remainingTime = `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-      }, 1000);
+    setViewStates(lesson1, quiz1, lesson2, quiz2, item) {
+      this.isshowLessonVisible = lesson1;
+      this.isshowQuizVisible = quiz1;
+      this.isshowLesson_2Visible = lesson2;
+      this.isshowQuiz_2Visible = quiz2;
+      this.isQuizSubmitted = false;
+      this.activeItem = item;
+      this.startCountdown(this.getDefaultTime(item));
     },
 
     getDefaultTime(item) {
@@ -448,7 +320,148 @@ submitQuiz() {
         default:
           return "00:00";
       }
+    },
+
+    startCountdown(time) {
+      clearInterval(this.timer);
+
+      let [minutes, seconds] = time.split(":").map(Number);
+
+      this.timer = setInterval(() => {
+        if (minutes === 0 && seconds === 0) {
+          clearInterval(this.timer);
+          this.remainingTime = "00:00";
+          return;
+        }
+        if (seconds === 0) {
+          minutes--;
+          seconds = 59;
+        } else {
+          seconds--;
+        }
+        this.remainingTime = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      }, 1000);
+    },
+
+    calculateTimeTaken(startTime, endTime) {
+      const diffInSeconds = Math.floor((endTime - startTime) / 1000);
+      const minutes = Math.floor(diffInSeconds / 60);
+      const seconds = diffInSeconds % 60;
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    },
+
+   selectAnswer(questionIndex, selectedOption) {
+    const question = this.activeItem === "quiz_1"
+      ? this.currentChapter.quiz.questionsAnswers[questionIndex]
+      : this.currentChapter.quiz.questionsAnswers_quiz_2[questionIndex];
+
+    // Save selected answer inside question object (optional)
+    question.selectedAnswer = selectedOption;
+
+    // Check if this question already exists in userAnswers, update or add
+    const existingIndex = this.userAnswers.findIndex(ans => ans.questionIndex === questionIndex);
+    if (existingIndex >= 0) {
+      this.userAnswers[existingIndex].selectedOption = selectedOption;
+    } else {
+      this.userAnswers.push({
+        questionIndex,
+        question: question.title,
+        selectedOption,
+        correctAnswer: question.correct_ans,
+      });
     }
+  },
+submitQuiz() {
+  this.totalScore = 0;
+  this.missingAnswers = {};
+  const endTime = new Date();
+
+  // Set time taken
+  this.quizResults.timeTaken = this.calculateTimeTaken(this.quizStartTime, endTime);
+  this.quizResults.submittedAt = endTime.toLocaleString();
+
+  // Determine quiz source
+  const allQuestions = this.activeItem === "quiz_1"
+    ? this.currentChapter?.quiz.questionsAnswers
+    : this.currentChapter?.quiz.questionsAnswers_quiz_2;
+
+  if (!allQuestions) {
+    console.error("Quiz data is missing!");
+    return;
+  }
+
+  // Check for unanswered questions
+  allQuestions.forEach((quiz, index) => {
+    if (!quiz.selectedAnswer) {
+      this.missingAnswers[index] = "Please choose an answer!";
+    }
+  });
+
+  if (Object.keys(this.missingAnswers).length > 0) return;
+
+  // Stop timer
+  clearInterval(this.timer);
+
+  // Calculate score
+  let totalPossibleScore = 0;
+  allQuestions.forEach((quiz) => {
+    if (quiz.selectedAnswer === quiz.correct_ans) {
+      this.totalScore += quiz.score || 0;
+    }
+    totalPossibleScore += quiz.score || 0;
+  });
+
+  // Calculate result
+  const percentage = totalPossibleScore > 0
+    ? (this.totalScore / totalPossibleScore) * 100
+    : 0;
+
+  if (percentage === 100) {
+    this.resultMessage = "🎉 Congratulations! You passed with a perfect score!";
+  } else if (percentage >= 50) {
+    this.resultMessage = "✅ Well done! You passed the quiz!";
+  } else if (percentage >= 25) {
+    this.resultMessage = " Good effort! Try again to improve your score.";
+  } else {
+    this.resultMessage = " Keep practicing! You'll do better next time!";
+  }
+
+  this.totalPossibleScore = totalPossibleScore;
+  this.isQuizSubmitted = true;
+
+  // Save to Pinia store
+  const quizStore = useQuizStore();
+  
+  // Determine quiz title based on activeItem
+  const quizTitle = this.activeItem === 'quiz_1' 
+    ? this.currentChapter?.quiz.quiz_title_1 
+    : this.currentChapter?.quiz.quiz_title_2;
+  
+  // Determine lesson title (if applicable)
+  let lessonTitle = null;
+  if (this.activeItem === 'quiz_1') {
+    lessonTitle = this.currentChapter?.lesson_1?.title;
+  } else if (this.activeItem === 'quiz_2') {
+    lessonTitle = this.currentChapter?.lesson_2?.title;
+  }
+
+  quizStore.saveResult({
+    courseId: this.courseId,
+    courseTitle: this.currentCourse?.title,
+    chapterTitle: this.currentChapter?.chapter_title,
+    lessonTitle: lessonTitle,
+    quizTitle: quizTitle,
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    score: this.totalScore,
+    totalPossibleScore: totalPossibleScore,
+    timeTaken: this.quizResults.timeTaken,
+    status: percentage >= 50 ? 'completed' : 'pending',
+    percentage: Math.round(percentage),
+     answers: this.userAnswers,
+    
+  });
+}
   }
 };
 </script>

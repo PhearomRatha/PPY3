@@ -11,7 +11,7 @@ export const useCourses = defineStore('courses', {
       { id: "html", bgColor: "bg-[orange]", programming_lng: "HTML", featureCounts: [0, 0, 0] },
       { id: "css", bgColor: "bg-blue-600", programming_lng: "CSS", featureCounts: [0, 0, 0] },
       { id: "bootstrap", bgColor: "bg-[purple]", programming_lng: "Bootstrap", featureCounts: [0, 0, 0] },
-      { id: "vue", bgColor: "bg-blue-300", programming_lng: "Tailwind", featureCounts: [0, 0, 0] },
+      { id: "tailwind", bgColor: "bg-blue-300", programming_lng: "Tailwind", featureCounts: [0, 0, 0] },
       { id: "javascript", bgColor: "bg-yellow-400", programming_lng: "JavaScript", featureCounts: [0, 0, 0] },
       { id: "react", bgColor: "bg-blue-400", programming_lng: "React", featureCounts: [0, 0, 0] },
       { id: "vue", bgColor: "bg-green-700", programming_lng: "Vue.js", featureCounts: [0, 0, 0] },
@@ -336,7 +336,7 @@ export const useCourses = defineStore('courses', {
         
       
        {
-        courseId: "Python",
+        courseId: 'python',	
         chapter_title: "ជំពូក 01: សេចក្តីណែនាំអំពីភាសា python",
         lesson_1: {
           title: "មេរៀនទី 01: ការនែនាំអំពីភាសាpython?",
@@ -350,9 +350,8 @@ export const useCourses = defineStore('courses', {
         discription: "Syntax ភាសា Python គឺជាសំណុំនៃច្បាប់ដែលកំណត់របៀបសរសេរ និងបកប្រែភាសា។ វាត្រូវបានរចនាឡើងឱ្យមានភាពច្បាស់លាស់ ងាយស្រួលអាន និងងាយស្រួលរៀន។ ខាងក្រោមនេះគឺជាចំណុចសំខាន់ៗមួយចំនួន៖ការវិលចូល (Indentation) ភាពប្រែប្រួលនៃអក្សរធំ-អក្សរតូច ពាក្យគន្លឹះ (Keywords) ប្រភេទទិន្នន័យអថេរ",
         vdo_url: "https://youtu.be/4WVZBtqqVM4?si=U7k6D-qsKGm_Gv4T"
         },
-        quiz: [
-          {
-            quiz_title: "Quiz 01",
+        quiz: {
+            quiz_title_1: "Quiz 01",
             time_quiz_1: "2:00",
             questionsAnswers: [
               {
@@ -388,12 +387,10 @@ export const useCourses = defineStore('courses', {
                 correct_ans: "D) A, B, C",
                 score: 1
               }
-            ]
-          },
-          {
-            quiz_title: "Quiz 02",
+            ],
+            quiz_title_2: "Quiz 01",
             time_quiz_2: "2:00",
-            questionsAnswers: [
+            questionsAnswers_quiz_2: [
               {
                 title: "1. របៀបRun Python ក្នុងកុំព្យូទ័រ?",
                 answers: [
@@ -429,7 +426,7 @@ export const useCourses = defineStore('courses', {
               }
             ]
           }
-        ]
+        
       },
       
       {
@@ -448,7 +445,7 @@ export const useCourses = defineStore('courses', {
           vdo_url: 'https://youtube.com/playlist?list=PLuEdNLfGOtnXQgIxwuOjWvhE4pvxJghhk&si=QHnDSVwXYf44fMgs',
         },
         quiz: {
-          quiz_title: "quiz 01",
+          quiz_title_1: "quiz 01",
           time_quiz_1: "10:00",
           questionsAnswers: [
             {
@@ -474,12 +471,12 @@ export const useCourses = defineStore('courses', {
               score: 1
             },
             
-          ]
-        },
-        quiz_2: {
-          quiz_title: "quiz 02",
+          ],
+        
+       
+          quiz_title_2: "quiz 02",
           time_quiz_2: "10:00",
-          questionsAnswers: [
+          questionsAnswers_quiz_2: [
             {
               title: "1.តើ Syntax មូលដ្ឋាននៃ CSS មានអ្វីខ្លះ?",
               answers: [
@@ -537,7 +534,7 @@ export const useCourses = defineStore('courses', {
         vdo_url: "https://youtu.be/it1rTvBcfRg?si=WxYr9CKMKX6OEOjG"
         },
         quiz: {
-          quiz_title: "Quiz 01",
+          quiz_title_1: "Quiz 01",
           time_quiz_1: "2:00",
           questionsAnswers: [
             {
@@ -573,6 +570,43 @@ export const useCourses = defineStore('courses', {
               correct_ans: "A) HTML Tags គឺជាពាក្យបញ្ជាដែលប្រើដើម្បីបង្កើតរចនាសម្ព័ន្ធនៃគេហទំព័រ ដូចជា កំណត់អត្ថបទ រូបភាព និងតារាង។",
               score: 1
             }
+          ],
+          quiz_title_2: "Quiz 02",
+          time_quiz_2: "2:00",
+          questionsAnswers_quiz_2: [
+            {
+              title: "1. តើ HTML Attributes ជាអ្វី?",
+              answers: [
+                "A) HTML Attributes គឺជាពាក្យបញ្ជាដែលប្រើដើម្បីកំណត់លក្ខណៈពិសេសនៃធាតុ HTML",
+                "B) HTML Attributes គឺជាអត្ថបទដែលត្រូវបានបង្ហាញនៅលើគេហទំព័រ",
+                "C) HTML Attributes គឺជារូបភាពដែលត្រូវបានបង្ហាញនៅលើគេហទំព័រ",
+                "D) HTML Attributes គឺជាស្លាកដែលប្រើដើម្បីបង្កើតធាតុ HTML"
+              ],
+              correct_ans: "A) HTML Attributes គឺជាពាក្យបញ្ជាដែលប្រើដើម្បីកំណត់លក្ខណៈពិសេសនៃធាតុ HTML",
+              score: 1
+            },
+            {
+              title: "2. តើ HTML Document Structure មានអ្វីខ្លះ?",
+              answers: [
+                "A) <!DOCTYPE html>, <html>, <head>, <body>",
+                "B) <html>, <head>, <title>, <body>",
+                "C) <html>, <head>, <body>, <footer>",
+                "D) <!DOCTYPE html>, <html>, <head>, <footer>"
+              ],
+              correct_ans: "A) <!DOCTYPE html>, <html>, <head>, <body>",
+              score: 1
+            },
+            {
+              title: "3. តើ HTML Head Element មានអ្វីខ្លះ?",
+              answers: [
+                "A) កំណត់ឈ្មោះគេហទំព័រ និងព័ត៌មានផ្សេងៗ",
+                "B) បង្ហាញមាតិកានៅក្នុងផ្នែកខាងក្រោម",
+                "C) បង្ហាញរូបភាពនៅក្នុងគេហទំព័រ",
+                "D) បង្កើតតារាងនៅក្នុងគេហទំព័រ"
+              ],
+              correct_ans: "A) កំណត់ឈ្មោះគេហទំព័រ និងព័ត៌មានផ្សេងៗ",
+              score: 1
+            }
           ]
         }
       },
@@ -593,7 +627,7 @@ export const useCourses = defineStore('courses', {
           vdo_url: 'https://www.youtube.com/embed/7PJlHDOsiKY?si=8ivSCwC5zR6EUl8P',
         },
         quiz: {
-          quiz_title: "Quiz 01",
+          quiz_title_1: "Quiz 01",
           time_quiz_1: "2:00",
           questionsAnswers: [
             {
@@ -639,12 +673,11 @@ export const useCourses = defineStore('courses', {
               correct_ans: "a) ការបង្កើត Variable ដែលអាចផ្លាស់ប្តូរ",
               score: 1
             }
-          ]
-        },
-        quiz_2: {
-          quiz_title: "Quiz 02",
+          ],
+   
+          quiz_title_2: "Quiz 02",
           time_quiz_2: "3:00",
-          questionsAnswers: [
+          questionsAnswers_quiz_2: [
             {
               title: "1.តើ Operator "===" មានន័យថា:",
               answers: [
@@ -697,7 +730,7 @@ export const useCourses = defineStore('courses', {
           vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
         },
         quiz: {
-          quiz_title: 'Quiz 01',
+          quiz_title_1: 'Quiz 01',
           time_quiz_1: '2:00',
           questionsAnswers: [
             {
@@ -733,6 +766,32 @@ export const useCourses = defineStore('courses', {
               correct_ans: 'ចម្លើយត្រឹមត្រូវ: ទាំងអស់',
               score: 1
             }
+          ],
+          quiz_title_2: 'Quiz 02',
+          time_quiz_2: '3:00',
+          questionsAnswers_quiz_2: [
+            {
+              title: '1. តើ Java Virtual Machine (JVM) មានតួនាទីអ្វី?',
+              answers: [
+                'A) បង្កើតកម្មវិធី Java',
+                'B) បង្ហោះកម្មវិធី Java ទៅកាន់ប្រព័ន្ធប្រតិបត្តិការ',
+                'C) បំលែងកូដ Java ទៅកូដម៉ាស៊ីន',
+                'D) គ្រប់គ្រងការប្រើប្រាស់អង្គចងចាំ'
+              ],
+              correct_ans: 'C) បំលែងកូដ Java ទៅកូដម៉ាស៊ីន',
+              score: 1
+            },
+            {
+              title: '2. តើ Java Development Kit (JDK) មានតួនាទីអ្វី?',
+              answers: [
+                'A) ផ្តល់ឧបករណ៍សម្រាប់អភិវឌ្ឍន៍កម្មវិធី Java',
+                'B) ផ្តល់ឧបករណ៍សម្រាប់បង្ហោះកម្មវិធី Java',
+                'C) ផ្តល់ឧបករណ៍សម្រាប់បង្កើតគេហទំព័រ',
+                'D) ផ្តល់ឧបករណ៍សម្រាប់គ្រប់គ្រងទិន្នន័យ'
+              ],
+              correct_ans: 'A) ផ្តល់ឧបករណ៍សម្រាប់អភិវឌ្ឍន៍កម្មវិធី Java',
+              score: 1
+            }
           ]
         }
       },
@@ -742,17 +801,17 @@ export const useCourses = defineStore('courses', {
         lesson_1: {
           title: 'មេរៀនទី 01: Bootstrap ជាអ្វី?',
           time: '3:00',
-          description: 'នេះជាមេរៀនបង្រៀនពី Boostrap ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
-          vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmpRKah2EZP1RPr8NG_u_d9i&si=gvnaNdZ2sPaIWmx_'
+          description: 'នេះជាមេរៀនបង្រៀនពី Boostrap ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។ នេះជាមេរៀនបង្រៀនពី Boostrap ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។ នេះជាមេរៀនបង្រៀនពី Boostrap ដែលជា framework របស់ Css វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ CSS ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។ ',
+          vdo_url: 'https://youtu.be/mPvGOOUPmkQ?si=acJmGOumAY1Sfw5B'
         },
         lesson_2: {
           title: 'មេរៀនទី 02: តើ Bootstrap ជាអ្វី?',
           time: '2:00',
           description: 'យល់ដឹងអំពី 12-column grid system  Classes: .container, .row, និង .col របៀបបែងចែក Layout ដោយប្រើ Columns និង Rows ',
-          vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
+          vdo_url: 'https://youtu.be/mPvGOOUPmkQ?si=acJmGOumAY1Sfw5B'
         },
         quiz: {
-          quiz_title: 'Quiz 01',
+          quiz_title_1: 'Quiz 01',
           time_quiz_1: '2:00',
           questionsAnswers: [
             {
@@ -796,6 +855,41 @@ export const useCourses = defineStore('courses', {
               score: 1
             }
             
+          ],
+      
+          quiz_title_2: "Quiz 1",
+          time_quiz_2: '3:00',
+          questionsAnswers_quiz_2: [
+            {
+              title: '1. តើ Bootstrap Grid System ត្រូវបានបែងចែកជាប៉ុន្មាន Columns?',
+              answers: [
+                'A) 6 Columns',
+                'B) 12 Columns',
+                'C) 24 Columns',
+              ],
+              correct_ans: 'B) 12 Columns',
+              score: 1
+            },
+            {
+              title: '2. តើ Bootstrap Grid System ត្រូវបានប្រើសម្រាប់អ្វី?',
+              answers: [
+                'A) ការបង្កើត UI ដែលមានការឆ្លើយតបទៅកាន់ទំហំអេក្រង់',
+                'B) ការបង្កើតស្ទីលដោយគ្មាន Classes',
+                'C) ការគ្រប់គ្រងទិន្នន័យ',
+              ],
+              correct_ans: 'A) ការបង្កើត UI ដែលមានការឆ្លើយតបទៅកាន់ទំហំអេក្រង់',
+              score: 1
+            },
+            {
+              title: '3. តើ Bootstrap Grid System ត្រូវបានប្រើសម្រាប់អ្វី?',
+              answers: [
+                'A) ការបង្កើត UI ដែលមានការឆ្លើយតបទៅកាន់ទំហំអេក្រង់',
+                'B) ការបង្កើតស្ទីលដោយគ្មាន Classes',
+                'C) ការគ្រប់គ្រងទិន្នន័យ',
+              ],
+              correct_ans: 'A) ការបង្កើត UI ដែលមានការឆ្លើយតបទៅកាន់ទំហំអេក្រង់',
+              score: 1
+            }
           ]
         }
       },
@@ -815,7 +909,7 @@ export const useCourses = defineStore('courses', {
           vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
         },
         quiz: {
-          quiz_title: 'Quiz 01',
+          quiz_title_1: 'Quiz 01',
           time_quiz_1: '2:00',
           questionsAnswers: [
             {
@@ -859,9 +953,186 @@ export const useCourses = defineStore('courses', {
               score: 1
             }
             
-          ]
+          ],
+          quiz_title_2: "Quiz 1",
+          time_quiz_2: '3:00',
+          questionsAnswers_quiz_2: [
+            {
+              title: '1. តើ Tailwind CSS ជាអ្វី?',
+              answers: [
+                'A) CSS Framework ប្រភេទ Utility-firstt',
+                'B) JavaScript Framework',
+                'C) Database Management Tool',
+              ],
+              correct_ans: 'A) CSS Framework ប្រភេទ Utility-firstt',
+              score: 1
+            },
+            {
+              title: '2. តើអត្ថប្រយោជន៍ចម្បងនៃ Tailwind CSS គឺជាអ្វី?',
+              answers: [
+                'A) ផ្តល់ជាគំរូដ៏ធំទូលាយ',
+                'B) ការប្រើ Utility Classes ដើម្បីរចនាស្ទីល UI បានរហ័ស',
+                'C) ការរចនាម៉ោងបណ្ដាញដោយគ្មាន Classes',
+              ],
+              correct_ans: 'B) ការប្រើ Utility Classes ដើម្បីរចនាស្ទីល UI បានរហ័ស',
+              score: 1
+            },
+            {
+              title: '3. តើ Tailwind Utility Class "p-4" មានន័យថា:',
+              answers: [
+                'A) Padding 16px',
+                'B) Padding 4p',
+                'C) Padding 8px',
+              ],
+              correct_ans: 'A) Padding 16px',
+              score: 1
+            },
+            {
+              title: '4. តើ Tailwind Class "bg-blue-500" ប្រើសម្រាប់:',
+              answers: [
+                'A) កំណត់ Background Color ជា Blue',
+                'B) កំណត់ Border Color ជា Blue',
+                'C) កំណត់ Text Color ជា Blue',
+              ],
+              correct_ans: 'A) កំណត់ Background Color ជា Blue',
+              score: 1
+            }
+          ] 
         }
       },
+      {
+        courseId:'vue',
+        chapter_title: 'ជំពូក​ 01: មូលដ្ឋាន Vue.js',
+        lesson_1: {
+          title: 'មេរៀនទី 01: Vue.js ជាអ្វី?',
+          time: '3:00',
+          description: 'នេះជាមេរៀនបង្រៀនពី Vue.js ដែលជា framework របស់ JavaScript វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ JavaScript ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
+          vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmqNIl6xXOUQ5Qj6g0JBBgP6&si=czLc_c6Xbhy51sPE'
+        },
+        lesson_2: {
+          title: 'មេរៀនទី 02: Vue.js Syntax និង Components',
+          time: '2:00',
+          description: 'Vue Instance, Vue Components, Vue Directives, Vue Template Syntax',
+          vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
+        },
+        quiz:{
+          quiz_title_1: 'Quiz 01',
+          time_quiz_1: '2:00',
+          questionsAnswers: [
+            {
+              title: '1. តើ Vue.js ជាអ្វី?',
+              answers: [
+                'A) JavaScript Framework',
+                'B) CSS Framework',
+                'C) Database Management Tool',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            },
+            {
+              title: '2. តើអត្ថប្រយោជន៍ចម្បងនៃ Vue.js គឺជាអ្វី?',
+              answers: [
+                'A) ផ្តល់ជាគំរូដ៏ធំទូលាយ',
+                'B) ការប្រើ Utility Classes ដើម្បីរចនាស្ទីល UI បានរហ័ស',
+                'C) ការរចនាម៉ោងបណ្ដាញដោយគ្មាន Classes',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            }
+          ],
+          quiz_title_2: "Quiz 1",
+          time_quiz_2: '3:00',
+          questionsAnswers_quiz_2: [
+            {
+              title: '1. តើ Vue.js ជាអ្វី?',
+              answers: [
+                'A) JavaScript Framework',
+                'B) CSS Framework',
+                'C) Database Management Tool',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            },
+            {
+              title: '2. តើអត្ថប្រយោជន៍ចម្បងនៃ Vue.js គឺជាអ្វី?',
+              answers: [
+                'A) ផ្តល់ជាគំរូដ៏ធំទូលាយ',
+                'B) ការប្រើ Utility Classes ដើម្បីរចនាស្ទីល UI បានរហ័ស',
+                'C) ការរចនាម៉ោងបណ្ដាញដោយគ្មាន Classes',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            }
+          ]
+        }
+        
+      },
+      {
+        courseId: 'react',
+        chapter_title: 'ជំពូក​ 01: មូលដ្ឋាន React.js',
+        lesson_1: {
+          title: 'មេរៀនទី 01: React.js ជាអ្វី?',
+          time: '3:00',
+          description: 'នេះជាមេរៀនបង្រៀនពី React.js ដែលជា framework របស់ JavaScript វានិងធ្វើអោយយើងងាយស្រួលក្នុងការហៅវាមកប្រើប្រាស់ដោយមិនវាមិនធ្វើអោយយើងប្រើ JavaScript ច្រើន។​ ហើយនៅក្នុងមេរៀននេះវានិងជួយអោយអ្នកទាំងអស់គ្នា បានស្គាល់និងស្វែងយល់ពីវាបានកាន់តែច្រើនដើម្បីជាជំនួយក្នុងការបង្កើត វេបសាយ៍មួយដែលសោភ័ណភាពស្រស់ស្អាតតាមអ្វីដែលយើងចង់បាន។​ហើយយើងក៏មានជាលំហាត់ខ្លះនៅក្នុងមេរៀននេះសម្រាប់តេស្តសមត្ថភាពរបស់អ្នកទាំងអស់គ្នាដើម្បីចង់ដឹងថាបន្ទាប់ពីចប់ថ្នាក់នេះតើអ្នកអាចយល់ពីវាបានប៉ុណ្ណាដែរ។',
+          vdo_url: 'https://youtube.com/playlist?list=PLb7Jk4WtxwmqNIl6xXOUQ5Qj6g0JBBgP6&si=czLc_c6Xbhy51sPE'
+        },
+        lesson_2: {
+          title: 'មេរៀនទី 02: React.js Syntax និង Components',
+          time: '2:00',
+          description: 'React Components, JSX, Props, State',
+          vdo_url: 'https://youtu.be/YF59k3gZeb4?si=33omL9QhfS-gFtx_'
+        },
+        quiz:{
+          quiz_title_1: 'Quiz 01',
+          time_quiz_1: '2:00',
+          questionsAnswers: [
+            {
+              title: '1. តើ React.js ជាអ្វី?',
+              answers: [
+                'A) JavaScript Framework',
+                'B) CSS Framework',
+                'C) Database Management Tool',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            },
+            {
+              title: '2. តើអត្ថប្រយោជន៍ចម្បងនៃ React.js គឺជាអ្វី?',
+              answers: [
+                'A) ផ្តល់ជាគំរូដ៏ធំទូលាយ',
+                'B) ការប្រើ Utility Classes ដើម្បីរចនាស្ទីល UI បានរហ័ស',
+                'C) ការរចនាម៉ោងបណ្ដាញដោយគ្មាន Classes',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            }
+          ],
+          quiz_title_2: "Quiz 1",
+          time_quiz_2: '3:00',
+          questionsAnswers_quiz_2: [
+            {
+              title: '1. តើ React.js ជាអ្វី?',
+              answers: [
+                'A) JavaScript Framework',
+                'B) CSS Framework',
+                'C) Database Management Tool',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            },
+            {
+              title: '2. តើអត្ថប្រយោជន៍ចម្បងនៃ React.js គឺជាអ្វី?',
+              answers: [
+                'A) ផ្តល់ជាគំរូដ៏ធំទូលាយ',
+                'B) ការប្រើ Utility Classes ដើម្បីរចនាស្ទីល UI បានរហ័ស',
+                'C) ការរចនាម៉ោងបណ្ដាញដោយគ្មាន Classes',
+              ],
+              correct_ans: 'A) JavaScript Framework',
+              score: 1
+            }
+          ]
+        }
+      }
 
 
 

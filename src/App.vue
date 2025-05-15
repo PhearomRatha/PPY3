@@ -14,7 +14,7 @@ export default {
   },
   computed:{
     isIncludedSignInUpAboutus(){
-      return ['/sing_up', '/sing_in', '/about_us','/detail_course','/profile'].some(route => this.currentRoute.toLowerCase().includes(route));
+      return ['/sing_up', '/sing_in', '/about_us','/detail_course','/profile','/detail_quiz'].some(route => this.currentRoute.toLowerCase().includes(route));
     }
   },
 
